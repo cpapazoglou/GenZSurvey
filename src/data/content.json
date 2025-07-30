@@ -11,24 +11,19 @@
       "template": "multiple-quotes",
       "children": [
         {
-          "image": "https://i.pravatar.cc/300?img=1",
-          "title": "Digital Connection",
-          "text": "Social media isn't just entertainment for us—it's how we stay informed, build communities, and create change."
+          "image": "/images/nikolas.svg",
+          "title": "Νικόλας, 21",
+          "text": "Θα ήθελα να είμαι ψυχολόγος, να έχω ένα δικό μου γραφείο, να μην έχω έλεγχο από πάνω, να μην είμαι σε μια επιχείρηση. Να έχω εγώ τον έλεγχο."
         },
         {
-          "image": "https://i.pravatar.cc/300?img=2",
-          "title": "Authentic Values",
-          "text": "We value authenticity over perfection. Brands that try too hard to be 'cool' just come across as fake."
+          "image": "/images/vasiliki.svg",
+          "title": "Βασιλική, 18",
+          "text": "Στη δική μου γενιά κυριαρχεί η ελευθερία και να κάνεις αυτό που θέλεις. Ενώ στην παλιά γενιά τους ενδιέφεραν οι μισθοί και να μπουν στο δημόσιο."
         },
         {
-          "image": "https://i.pravatar.cc/300?img=3",
-          "title": "Mental Health Awareness",
-          "text": "Mental health conversations aren't taboo anymore. We're the generation that's finally breaking the stigma."
-        },
-        {
-          "image": "https://i.pravatar.cc/300?img=4",
-          "title": "Climate Consciousness",
-          "text": "Climate change isn't a distant threat—it's our reality. Every decision we make considers the environmental impact."
+          "image": "/images/panagiotis.svg",
+          "title": "Παναγιώτης, 29",
+          "text": "Δουλεύουμε για να έχουμε καλύτερη ζωή,<strong> δεν δουλεύουμε για να είναι ζωή μας η δουλειά.</strong>"
         }
       ]
     },

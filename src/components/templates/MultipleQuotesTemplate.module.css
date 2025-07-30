@@ -1,68 +1,64 @@
-.content {
-  text-align: center;
-  color: black;
-}
-
-.quotesColumn {
+.contentSection {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-top: 2rem;
   align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
 }
 
 .quoteCard {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  max-width: 500px;
+  gap: 25px;
+  padding: 25px;
   width: 100%;
+  max-width: 704px;
+  border-left: 4px solid var(--yellow-color);
 }
 
-.quoteCardLeft {
-  flex-direction: row;
-  text-align: left;
-}
-
-.quoteCardRight {
+.quoteCardEven {
   flex-direction: row-reverse;
-  text-align: right;
+  border-left: none;
+  border-right: 4px solid var(--orange-dark-color);
 }
 
-.imageContainer {
+.testimonialImage {
   flex-shrink: 0;
 }
 
-.profileImage {
-  width: 80px;
-  height: 80px;
+.testimonialImageImg {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid var(--yellow-color);
+  transition: transform 0.3s ease;
 }
 
-.textContent {
+.testimonialImageEven {
+  border: 3px solid var(--orange-dark-color);
+}
+
+.testimonialContent {
   flex: 1;
+  text-align: left;
 }
 
-.quoteTitle {
-  font-family: var(--font-body-semibold);
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: black;
+.testimonialName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 8px;
 }
 
-.quote {
-  font-family: var(--font-body-light);
+.testimonialQuote {
   font-size: 0.95rem;
-  line-height: 1.5;
   font-style: italic;
-  margin: 0;
-  opacity: 0.9;
-  color: black;
+  color: #212121;
+  line-height: 1.6;
+}
+
+.testimonialQuote strong {
+    color: var(--orange-dark-color);
+    font-weight: 700;
 }
