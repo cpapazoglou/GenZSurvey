@@ -2,59 +2,39 @@
   "sections": [
     {
       "id": "hero",
+      "template": "hero",
       "title": "Welcome to Gen Z Survey",
-      "subtitle": "Understanding the Digital Generation",
-      "content": "Exploring the thoughts, behaviors, and perspectives of Generation Z through comprehensive research and insights."
+      "subtitle": "Understanding the Digital Generation"
     },
     {
-      "id": "insights",
-      "title": "Key Insights",
-      "subtitle": "What We've Discovered",
-      "content": [
-        {
-          "title": "Digital Natives",
-          "subtitle": "Born Connected",
-          "content": "Generation Z has never known a world without the internet, shaping their communication, learning, and social interaction patterns."
-        },
-        {
-          "title": "Social Consciousness",
-          "subtitle": "Purpose-Driven Generation",
-          "content": "This generation shows unprecedented concern for social issues, climate change, and equality, driving their purchasing and career decisions."
-        },
-        {
-          "title": "Financial Pragmatism",
-          "subtitle": "Realistic About Money",
-          "content": "Having witnessed economic uncertainty, Gen Z approaches finances with caution and seeks stability in their career choices."
-        }
+      "id": "quotes",
+      "template": "multiple-quotes",
+      "image": "/images/gen-z-group.jpg",
+      "title": "Voices of Generation Z",
+      "text": [
+        "Social media isn't just entertainment for us—it's how we stay informed, build communities, and create change.",
+        "We value authenticity over perfection. Brands that try too hard to be 'cool' just come across as fake.",
+        "Mental health conversations aren't taboo anymore. We're the generation that's finally breaking the stigma.",
+        "Climate change isn't a distant threat—it's our reality. Every decision we make considers the environmental impact."
       ]
     },
     {
-      "id": "methodology",
-      "title": "Research Methodology",
-      "subtitle": "How We Conducted Our Study",
-      "content": [
-        {
-          "title": "Survey Design",
-          "subtitle": "Comprehensive Questionnaire",
-          "content": "We developed a 50-question survey covering topics from technology usage to career aspirations and social values."
-        },
-        {
-          "title": "Sample Size",
-          "subtitle": "Representative Demographics",
-          "content": "Our study included 2,500 participants aged 18-26 from diverse backgrounds across urban and rural areas."
-        },
-        {
-          "title": "Data Analysis",
-          "subtitle": "Statistical Rigor",
-          "content": "Using advanced statistical methods, we identified significant patterns and correlations in Gen Z behaviors and attitudes."
-        }
-      ]
+      "id": "research",
+      "template": "text",
+      "text": "Our comprehensive study surveyed 2,500 Gen Z participants aged 18-26 across diverse demographics. Using advanced statistical analysis, we identified key patterns in their digital behaviors, career aspirations, social values, and financial attitudes. The research methodology included both quantitative surveys and qualitative interviews to provide a complete picture of this generation's unique characteristics and perspectives."
     },
     {
-      "id": "conclusions",
-      "title": "Key Takeaways",
-      "subtitle": "What This Means for the Future",
-      "content": "Generation Z represents a fundamental shift in how young people interact with technology, approach work-life balance, and engage with social issues. Understanding these trends is crucial for businesses, educators, and policymakers."
+      "id": "demographics",
+      "template": "demographics",
+      "image": "/images/demographics-chart.jpg",
+      "text": "Generation Z represents 32% of the global population, making them the largest generation in history. Born between 1997-2012, they are true digital natives who have grown up with smartphones, social media, and instant access to information. Our study shows they are more diverse, educated, and socially conscious than any previous generation, with 48% identifying as ethnically diverse and 73% believing companies should take stands on social issues."
+    },
+    {
+      "id": "conclusion",
+      "template": "single-quote",
+      "title": "The Future is Now",
+      "subtitle": "Generation Z isn't just preparing for the future—they're actively creating it through their values, choices, and unwavering commitment to authenticity and social change.",
+      "caption": "Dr. Sarah Mitchell, Lead Researcher"
     }
   ]
 }

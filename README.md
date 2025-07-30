@@ -8,7 +8,8 @@ A modern, responsive website built with Next.js featuring parallax scrolling eff
 - **Parallax Scrolling**: Smooth parallax effects between sections
 - **CSS-in-JS**: All styling implemented using CSS-in-JS objects
 - **Responsive Design**: Mobile-first approach with fluid typography
-- **JSON-Driven Content**: Content managed through JSON files
+- **Template-Based Architecture**: Five different section templates for varied content presentation
+- **JSON-Driven Content**: Content managed through JSON files with template-specific properties
 - **TypeScript**: Full type safety throughout the project
 - **Accessibility**: WCAG compliant with reduced motion support
 
@@ -21,11 +22,17 @@ src/
 │   ├── page.tsx            # Main page with parallax sections
 │   └── globals.css         # Global styles and animations
 ├── components/
-│   └── ParallaxSection.tsx # Reusable parallax section component
+│   ├── ParallaxSection.tsx # Main parallax section wrapper
+│   └── templates/          # Template components for different section types
+│       ├── HeroTemplate.tsx
+│       ├── MultipleQuotesTemplate.tsx
+│       ├── TextTemplate.tsx
+│       ├── DemographicsTemplate.tsx
+│       └── SingleQuoteTemplate.tsx
 ├── data/
-│   └── content.json        # Site content and data
+│   └── content.json        # Site content with template-based structure
 └── types/
-    └── content.ts          # TypeScript type definitions
+    └── content.ts          # TypeScript type definitions for all templates
 ```
 
 ## Getting Started
@@ -66,23 +73,61 @@ Content is managed through the `src/data/content.json` file. Each section follow
 ```json
 {
   "id": "unique-section-id",
-  "title": "Section Title",
-  "subtitle": "Section Subtitle", 
-  "content": "String content or array of content items"
+  "template": "template-name",
+  // Additional properties based on template
 }
 ```
 
-For sections with multiple content items:
+### Available Templates
 
+#### 1. Hero Template
 ```json
 {
-  "content": [
-    {
-      "title": "Item Title",
-      "subtitle": "Item Subtitle",
-      "content": "Item description"
-    }
-  ]
+  "id": "hero",
+  "template": "hero",
+  "title": "Main heading",
+  "subtitle": "Secondary heading"
+}
+```
+
+#### 2. Multiple Quotes Template
+```json
+{
+  "id": "quotes",
+  "template": "multiple-quotes",
+  "image": "/path/to/image.jpg",
+  "title": "Section title",
+  "text": ["Quote 1", "Quote 2", "Quote 3"]
+}
+```
+
+#### 3. Text Template
+```json
+{
+  "id": "content",
+  "template": "text",
+  "text": "Long form text content"
+}
+```
+
+#### 4. Demographics Template
+```json
+{
+  "id": "demographics",
+  "template": "demographics",
+  "image": "/path/to/chart.jpg",
+  "text": "Demographic information and statistics"
+}
+```
+
+#### 5. Single Quote Template
+```json
+{
+  "id": "quote",
+  "template": "single-quote",
+  "title": "Quote title",
+  "subtitle": "The main quote text",
+  "caption": "Attribution"
 }
 ```
 
