@@ -1,0 +1,19 @@
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 700;
+	color: var(--purple-color);
+	margin-bottom: 20px;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+	font-style: italic;
+	color: var(--orange-color);
+	font-weight: 400;
+}

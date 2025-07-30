@@ -3,30 +3,30 @@
     {
       "id": "hero",
       "template": "hero",
-      "title": "Welcome to Gen Z Survey",
-      "subtitle": "Understanding the Digital Generation"
+      "title": "Gen Z & Εργασία",
+      "subtitle": "μια έρευνα"
     },
     {
       "id": "quotes",
       "template": "multiple-quotes",
       "children": [
         {
-          "image": "/images/quote-1.jpg",
+          "image": "https://i.pravatar.cc/300?img=1",
           "title": "Digital Connection",
           "text": "Social media isn't just entertainment for us—it's how we stay informed, build communities, and create change."
         },
         {
-          "image": "/images/quote-2.jpg",
+          "image": "https://i.pravatar.cc/300?img=2",
           "title": "Authentic Values",
           "text": "We value authenticity over perfection. Brands that try too hard to be 'cool' just come across as fake."
         },
         {
-          "image": "/images/quote-3.jpg",
+          "image": "https://i.pravatar.cc/300?img=3",
           "title": "Mental Health Awareness",
           "text": "Mental health conversations aren't taboo anymore. We're the generation that's finally breaking the stigma."
         },
         {
-          "image": "/images/quote-4.jpg",
+          "image": "https://i.pravatar.cc/300?img=4",
           "title": "Climate Consciousness",
           "text": "Climate change isn't a distant threat—it's our reality. Every decision we make considers the environmental impact."
         }
@@ -42,17 +42,17 @@
       "template": "demographics",
       "children": [
         {
-          "image": "/images/age-distribution.jpg",
+          "image": "https://i.pravatar.cc/400?img=5",
           "title": "Age Distribution",
           "text": "Our study focused on Gen Z participants aged 18-26, representing the core demographic entering the workforce and making independent consumer decisions."
         },
         {
-          "image": "/images/diversity-stats.jpg",
+          "image": "https://i.pravatar.cc/400?img=6",
           "title": "Diversity & Inclusion",
           "text": "48% of Gen Z identifies as ethnically diverse, making them the most diverse generation in history with strong values around inclusion and representation."
         },
         {
-          "image": "/images/digital-habits.jpg",
+          "image": "https://i.pravatar.cc/400?img=7",
           "title": "Digital Natives",
           "text": "Born between 1997-2012, they've never known a world without smartphones and social media, fundamentally shaping their communication patterns."
         }

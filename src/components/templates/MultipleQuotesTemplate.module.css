@@ -1,0 +1,66 @@
+.content {
+  text-align: center;
+  color: black;
+}
+
+.quotesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.quoteCard {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.quoteCardLeft {
+  flex-direction: row;
+  text-align: left;
+}
+
+.quoteCardRight {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.profileImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.quoteTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.quote {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+  opacity: 0.9;
+  color: black;
+}

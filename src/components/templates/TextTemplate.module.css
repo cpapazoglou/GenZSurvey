@@ -1,0 +1,11 @@
+.content {
+  text-align: center;
+  color: black;
+}
+
+.text {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  line-height: 1.8;
+  margin: 0;
+  opacity: 0.9;
+}

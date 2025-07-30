@@ -1,11 +1,13 @@
 # Gen Z Survey - Parallax Website
 
-A modern, responsive website built with Next.js featuring parallax scrolling effects and static site generation. The site presents research insights about Generation Z through four engaging full-height sections.
+A modern, responsive website built with Next.js featuring react-scroll-parallax effects and static site generation. The site presents research insights about Generation Z through five engaging full-height sections with a clean, unified design.
 
 ## Features
 
 - **Static Site Generation**: Pre-rendered HTML for optimal performance
-- **Parallax Scrolling**: Smooth parallax effects between sections
+- **Advanced Parallax Scrolling**: Powered by react-scroll-parallax for smooth, hardware-accelerated effects
+- **Full-Height Sections**: Each section takes 100vh for immersive viewing experience
+- **Unified Design**: Clean, single background color across all sections for better readability
 - **CSS-in-JS**: All styling implemented using CSS-in-JS objects
 - **Responsive Design**: Mobile-first approach with fluid typography
 - **Template-Based Architecture**: Five different section templates for varied content presentation

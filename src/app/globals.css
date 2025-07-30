@@ -1,14 +1,31 @@
-/* Global styles and animations */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0) translateX(-50%);
-  }
-  40% {
-    transform: translateY(-10px) translateX(-50%);
-  }
-  60% {
-    transform: translateY(-5px) translateX(-50%);
-  }
+/* Reset and Base Styles */
+:root {
+    --background-color: #f8fbee;
+    --text-color: #333333;
+    --orange-color: #d16d60;
+    --orange-dark-color: #c4665a;
+    --purple-color: #4e3254;
+    --yellow-color: #f7a941;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Scroll indicator styles */
+.scrollIndicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.scrollArrow {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Smooth scrolling */
@@ -51,15 +68,3 @@ a:focus {
   background-color: rgba(102, 126, 234, 0.3);
 }
 
-/* Prefers reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  html {
-    scroll-behavior: auto;
-  }
-}
