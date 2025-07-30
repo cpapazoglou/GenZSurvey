@@ -1,0 +1,60 @@
+{
+  "sections": [
+    {
+      "id": "hero",
+      "title": "Welcome to Gen Z Survey",
+      "subtitle": "Understanding the Digital Generation",
+      "content": "Exploring the thoughts, behaviors, and perspectives of Generation Z through comprehensive research and insights."
+    },
+    {
+      "id": "insights",
+      "title": "Key Insights",
+      "subtitle": "What We've Discovered",
+      "content": [
+        {
+          "title": "Digital Natives",
+          "subtitle": "Born Connected",
+          "content": "Generation Z has never known a world without the internet, shaping their communication, learning, and social interaction patterns."
+        },
+        {
+          "title": "Social Consciousness",
+          "subtitle": "Purpose-Driven Generation",
+          "content": "This generation shows unprecedented concern for social issues, climate change, and equality, driving their purchasing and career decisions."
+        },
+        {
+          "title": "Financial Pragmatism",
+          "subtitle": "Realistic About Money",
+          "content": "Having witnessed economic uncertainty, Gen Z approaches finances with caution and seeks stability in their career choices."
+        }
+      ]
+    },
+    {
+      "id": "methodology",
+      "title": "Research Methodology",
+      "subtitle": "How We Conducted Our Study",
+      "content": [
+        {
+          "title": "Survey Design",
+          "subtitle": "Comprehensive Questionnaire",
+          "content": "We developed a 50-question survey covering topics from technology usage to career aspirations and social values."
+        },
+        {
+          "title": "Sample Size",
+          "subtitle": "Representative Demographics",
+          "content": "Our study included 2,500 participants aged 18-26 from diverse backgrounds across urban and rural areas."
+        },
+        {
+          "title": "Data Analysis",
+          "subtitle": "Statistical Rigor",
+          "content": "Using advanced statistical methods, we identified significant patterns and correlations in Gen Z behaviors and attitudes."
+        }
+      ]
+    },
+    {
+      "id": "conclusions",
+      "title": "Key Takeaways",
+      "subtitle": "What This Means for the Future",
+      "content": "Generation Z represents a fundamental shift in how young people interact with technology, approach work-life balance, and engage with social issues. Understanding these trends is crucial for businesses, educators, and policymakers."
+    }
+  ]
+}
