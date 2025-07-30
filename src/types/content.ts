@@ -23,11 +23,16 @@ export interface TextSection {
   text: string;
 }
 
+export interface DemographicsChild {
+  image: string;
+  title: string;
+  text: string;
+}
+
 export interface DemographicsSection {
   id: string;
   template: 'demographics';
-  image: string;
-  text: string;
+  children: DemographicsChild[];
 }
 
 export interface SingleQuoteSection {

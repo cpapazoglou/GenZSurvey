@@ -41,7 +41,7 @@ The site uses a template-based architecture with 5 different section types:
 1. **hero**: title, subtitle
 2. **multiple-quotes**: children (array with image, title, text for each)
 3. **text**: text
-4. **demographics**: image, text
+4. **demographics**: children (array with image, title, text for each)
 5. **single-quote**: title, subtitle, caption
 
 Each section in content.json must have:

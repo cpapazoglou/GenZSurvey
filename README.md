@@ -124,8 +124,18 @@ Content is managed through the `src/data/content.json` file. Each section follow
 {
   "id": "demographics",
   "template": "demographics",
-  "image": "/path/to/chart.jpg",
-  "text": "Demographic information and statistics"
+  "children": [
+    {
+      "image": "/path/to/chart1.jpg",
+      "title": "Demographic Title 1",
+      "text": "Demographic information and statistics"
+    },
+    {
+      "image": "/path/to/chart2.jpg", 
+      "title": "Demographic Title 2",
+      "text": "Additional demographic insights"
+    }
+  ]
 }
 ```
 

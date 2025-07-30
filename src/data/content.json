@@ -40,8 +40,23 @@
     {
       "id": "demographics",
       "template": "demographics",
-      "image": "/images/demographics-chart.jpg",
-      "text": "Generation Z represents 32% of the global population, making them the largest generation in history. Born between 1997-2012, they are true digital natives who have grown up with smartphones, social media, and instant access to information. Our study shows they are more diverse, educated, and socially conscious than any previous generation, with 48% identifying as ethnically diverse and 73% believing companies should take stands on social issues."
+      "children": [
+        {
+          "image": "/images/age-distribution.jpg",
+          "title": "Age Distribution",
+          "text": "Our study focused on Gen Z participants aged 18-26, representing the core demographic entering the workforce and making independent consumer decisions."
+        },
+        {
+          "image": "/images/diversity-stats.jpg",
+          "title": "Diversity & Inclusion",
+          "text": "48% of Gen Z identifies as ethnically diverse, making them the most diverse generation in history with strong values around inclusion and representation."
+        },
+        {
+          "image": "/images/digital-habits.jpg",
+          "title": "Digital Natives",
+          "text": "Born between 1997-2012, they've never known a world without smartphones and social media, fundamentally shaping their communication patterns."
+        }
+      ]
     },
     {
       "id": "conclusion",
