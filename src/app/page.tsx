@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ParallaxSection from '@/components/ParallaxSection';
+import ReadingProgress from '@/components/ReadingProgress';
 import { SiteData } from '@/types/content';
 import contentData from '@/data/content.json';
 
@@ -10,6 +11,7 @@ export default function HomePage() {
 
   return (
     <main style={styles.main}>
+      <ReadingProgress />
       {data.sections.map((section, index) => (
         <ParallaxSection
           key={section.id}
