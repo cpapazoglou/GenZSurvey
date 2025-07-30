@@ -5,12 +5,16 @@ export interface HeroSection {
   subtitle: string;
 }
 
+export interface MultipleQuotesChild {
+  image: string;
+  title: string;
+  text: string;
+}
+
 export interface MultipleQuotesSection {
   id: string;
   template: 'multiple-quotes';
-  image: string;
-  title: string;
-  text: string[];
+  children: MultipleQuotesChild[];
 }
 
 export interface TextSection {

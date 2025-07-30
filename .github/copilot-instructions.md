@@ -39,7 +39,7 @@ The site uses a template-based architecture with 5 different section types:
 
 ### Available Templates:
 1. **hero**: title, subtitle
-2. **multiple-quotes**: image, title, text (array)
+2. **multiple-quotes**: children (array with image, title, text for each)
 3. **text**: text
 4. **demographics**: image, text
 5. **single-quote**: title, subtitle, caption

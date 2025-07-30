@@ -95,9 +95,18 @@ Content is managed through the `src/data/content.json` file. Each section follow
 {
   "id": "quotes",
   "template": "multiple-quotes",
-  "image": "/path/to/image.jpg",
-  "title": "Section title",
-  "text": ["Quote 1", "Quote 2", "Quote 3"]
+  "children": [
+    {
+      "image": "/path/to/image1.jpg",
+      "title": "Quote Title 1",
+      "text": "Quote text content"
+    },
+    {
+      "image": "/path/to/image2.jpg",
+      "title": "Quote Title 2", 
+      "text": "Quote text content"
+    }
+  ]
 }
 ```
 

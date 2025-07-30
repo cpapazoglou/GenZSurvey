@@ -9,13 +9,27 @@
     {
       "id": "quotes",
       "template": "multiple-quotes",
-      "image": "/images/gen-z-group.jpg",
-      "title": "Voices of Generation Z",
-      "text": [
-        "Social media isn't just entertainment for us—it's how we stay informed, build communities, and create change.",
-        "We value authenticity over perfection. Brands that try too hard to be 'cool' just come across as fake.",
-        "Mental health conversations aren't taboo anymore. We're the generation that's finally breaking the stigma.",
-        "Climate change isn't a distant threat—it's our reality. Every decision we make considers the environmental impact."
+      "children": [
+        {
+          "image": "/images/quote-1.jpg",
+          "title": "Digital Connection",
+          "text": "Social media isn't just entertainment for us—it's how we stay informed, build communities, and create change."
+        },
+        {
+          "image": "/images/quote-2.jpg",
+          "title": "Authentic Values",
+          "text": "We value authenticity over perfection. Brands that try too hard to be 'cool' just come across as fake."
+        },
+        {
+          "image": "/images/quote-3.jpg",
+          "title": "Mental Health Awareness",
+          "text": "Mental health conversations aren't taboo anymore. We're the generation that's finally breaking the stigma."
+        },
+        {
+          "image": "/images/quote-4.jpg",
+          "title": "Climate Consciousness",
+          "text": "Climate change isn't a distant threat—it's our reality. Every decision we make considers the environmental impact."
+        }
       ]
     },
     {
