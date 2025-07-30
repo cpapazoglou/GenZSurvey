@@ -4,6 +4,7 @@
 }
 
 .title {
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -11,6 +12,7 @@
 }
 
 .quote {
+  font-family: var(--font-light);
   font-size: clamp(1.3rem, 3vw, 2rem);
   line-height: 1.6;
   font-style: italic;
@@ -19,6 +21,7 @@
 }
 
 .caption {
+  font-family: var(--font-body-medium);
   font-size: clamp(1rem, 2vw, 1.3rem);
   margin: 0;
   opacity: 0.8;

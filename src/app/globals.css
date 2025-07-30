@@ -1,3 +1,52 @@
+/* Custom Font Declarations */
+@font-face {
+  font-family: "Averta";
+  src: url('../fonts/UKASAntenna05Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AntennaSemiBold";
+  src: url('../fonts/UKASAntenna06SemiBold.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antenna03Book";
+  src: url('../fonts/UKASAntenna03Book.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antenna04Medium";
+  src: url('../fonts/UKASAntenna04Medium.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KaInfoLight";
+  src: url('../fonts/UKaInfoLightRoman.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Averta-Bold";
+  src: url('../fonts/UKASabbatoXBold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 /* Reset and Base Styles */
 :root {
     --background-color: #f8fbee;
@@ -6,11 +55,32 @@
     --orange-dark-color: #c4665a;
     --purple-color: #4e3254;
     --yellow-color: #f7a941;
+    
+    /* Font Variables */
+    --font-heading: 'Averta-Bold', system-ui, -apple-system, sans-serif;
+    --font-body: 'Averta', system-ui, -apple-system, sans-serif;
+    --font-body-light: 'Antenna03Book', system-ui, -apple-system, sans-serif;
+    --font-body-medium: 'Antenna04Medium', system-ui, -apple-system, sans-serif;
+    --font-body-semibold: 'AntennaSemiBold', system-ui, -apple-system, sans-serif;
+    --font-light: 'KaInfoLight', system-ui, -apple-system, sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Base typography */
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: bold;
 }
 
 /* Reading Progress Bar */

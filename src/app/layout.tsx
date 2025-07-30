@@ -25,9 +25,7 @@ const styles = {
   body: {
     margin: 0,
     padding: 0,
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-    lineHeight: 1.6,
-    color: '#333',
+    backgroundColor: '#f8fbee',
     overflowX: 'hidden' as const,
   },
 };
