@@ -1,12 +1,24 @@
-.content {
-  text-align: center;
-  color: black;
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-.text {
-  font-family: var(--font-body);
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+.mainContent {
+  width: 100%;
+  max-width: 800px;
+}
+
+.mainContent p {
+  font-size: 1.1rem;
   line-height: 1.8;
-  margin: 0;
-  opacity: 0.9;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.mainContent strong {
+  color: var(--orange-color);
+  font-weight: 700;
 }

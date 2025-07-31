@@ -9,9 +9,13 @@ interface TextTemplateProps {
 }
 
 const TextTemplate: React.FC<TextTemplateProps> = ({ section }) => {
+  const content = section.text || '';
+
   return (
-    <div className={styles.content}>
-      <p className={styles.text}>{section.text}</p>
+    <div className={styles.contentSection} data-section={section.id}>
+      <div className={styles.mainContent}>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </div>
     </div>
   );
 };
