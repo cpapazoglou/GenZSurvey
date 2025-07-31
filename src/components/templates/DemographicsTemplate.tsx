@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { DemographicsSection } from '@/types/content';
 import styles from './DemographicsTemplate.module.css';
 
@@ -15,9 +16,11 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) 
         {section.children.map((child, index) => (
           <div key={index} className={styles.demographicsCard}>
             <div className={styles.imageContainer}>
-              <img 
+              <Image 
                 src={child.image} 
                 alt={child.title}
+                width={400}
+                height={400}
                 className={styles.profileImage}
               />
             </div>
