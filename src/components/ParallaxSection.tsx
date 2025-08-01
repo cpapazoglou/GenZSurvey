@@ -11,7 +11,6 @@ import styles from './ParallaxSection.module.css';
 
 interface ParallaxSectionProps {
   section: Section;
-  index: number;
 }
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {

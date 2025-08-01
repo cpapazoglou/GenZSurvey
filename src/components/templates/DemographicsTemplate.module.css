@@ -1,49 +1,134 @@
-.content {
-  text-align: center;
-  color: black;
-}
-
-.demographicsGrid {
+.participants {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 704px;
+  padding: 0;
+  text-align: left;
+  margin: 100px auto;
+  position: relative;
 }
 
-.demographicsCard {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.imageContainer {
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.profileImage {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.cardTitle {
-  font-family: var(--font-body-medium);
-  font-size: 1.4rem;
+.participantName {
   font-weight: bold;
-  margin-bottom: 1rem;
-  color: black;
+  text-align: center;
+  margin-top: 8px;
 }
 
-.cardText {
-  font-family: var(--font-body-light);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.9;
-  color: black;
+.participant {
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* First row participants (1-5) - bubbles on top */
+.participant:nth-child(-n + 5) .participantDetails {
+  font-size: 11px;
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white !important;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: none;
+}
+
+/* Second row participants (6-10) - bubbles on bottom */
+.participant:nth-child(n + 6) .participantDetails {
+  font-size: 11px;
+  position: absolute;
+  bottom: -80px;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white !important;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: none;
+}
+
+.participantDetails.show,
+.participant.active .participantDetails {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
+}
+
+/* Pointer for first row bubbles (pointing down) */
+.participant:nth-child(-n + 5) .participantDetails::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+/* Pointer for second row bubbles (pointing up) */
+.participant:nth-child(n + 6) .participantDetails::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  border-top: none;
+}
+
+/* Hover effects */
+.participant:hover .participantDetails {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .participants {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 120px;
+  }
+
+  .participant {
+    margin-bottom: 40px;
+  }
+
+  /* All bubbles on top for mobile */
+  .participant .participantDetails {
+    top: -80px;
+    bottom: auto;
+    width: 120px;
+  }
+
+  /* All pointers pointing down for mobile */
+  .participant .participantDetails::after {
+    bottom: -10px;
+    top: auto;
+    border-top: 10px solid white;
+    border-bottom: none;
+  }
 }

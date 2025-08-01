@@ -11,12 +11,12 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 	return (
 		<div className={styles.contentSection}>
 			{section.children.map((quote, index) => {
-				const isEven = index % 2 === 1;
+				const isOdd = index % 2 === 1;
 
 				return (
 					<div
 						key={index}
-						className={`${styles.quoteCard} ${isEven ? styles.quoteCardEven : ''}`}
+						className={`${styles.quoteCard} ${isOdd ? styles.quoteCardOdd : ''}`}
 					>
 						<div className={styles.testimonialImage}>
 							<Image
@@ -24,7 +24,7 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 								alt={quote.title.split(',')[0]}
 								width={100}
 								height={100}
-								className={`${styles.testimonialImageImg} ${isEven ? styles.testimonialImageEven : ''}`}
+								className={`${styles.testimonialImageImg} ${isOdd ? styles.testimonialImageOdd : ''}`}
 							/>
 						</div>
 						<div className={styles.testimonialContent}>

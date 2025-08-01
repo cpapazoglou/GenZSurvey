@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .scrollArrow {
   font-size: 2rem;
-  color: white;
+  color: var(--purple-color);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 

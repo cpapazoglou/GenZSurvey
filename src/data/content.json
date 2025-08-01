@@ -37,19 +37,54 @@
       "template": "demographics",
       "children": [
         {
-          "image": "https://i.pravatar.cc/400?img=5",
-          "title": "Age Distribution",
-          "text": "Our study focused on Gen Z participants aged 18-26, representing the core demographic entering the workforce and making independent consumer decisions."
+          "image": "/images/nikolas.svg",
+          "title": "Νικόλας",
+          "text": "21 Κηφισιά, ζει στο πατρικό, σπουδάζει δημοσιογραφία στο ΕΚΠΑ"
         },
         {
-          "image": "https://i.pravatar.cc/400?img=6",
-          "title": "Diversity & Inclusion",
-          "text": "48% of Gen Z identifies as ethnically diverse, making them the most diverse generation in history with strong values around inclusion and representation."
+          "image": "/images/vasiliki.svg",
+          "title": "Βασιλική",
+          "text": "18 Θεσσαλονίκη, ζει στο πατρικό, δουλεύει σε καφετέρια"
         },
         {
-          "image": "https://i.pravatar.cc/400?img=7",
-          "title": "Digital Natives",
-          "text": "Born between 1997-2012, they've never known a world without smartphones and social media, fundamentally shaping their communication patterns."
+          "image": "/images/antonis.svg",
+          "title": "Αντώνης",
+          "text": "21 Χανιά, μένει μόνος, σπουδάζει ηλεκτρολόγος-μηχανικός στο Πολυτεχνείο"
+        },
+        {
+          "image": "/images/eleni.svg",
+          "title": "Ελένη",
+          "text": "20 Αιγάλεω, μένει με τον αδερφό της, σπουδάζει οργάνωση & διοίκηση επιχειρήσεων σε ΙΕΚ"
+        },
+        {
+          "image": "/images/christos.svg",
+          "title": "Χρήστος",
+          "text": "24 Σάμος, μένει μόνος, σπουδάζει προγραμματισμό"
+        },
+        {
+          "image": "/images/panagiotis.svg",
+          "title": "Παναγιώτης",
+          "text": "29 Νέα Σμύρνη, μένει μόνος, απόφοιτος ΙΕΚ, εργάζεται σε εταιρεία έργων πρασίνου και σε ευκαιριακές δουλειές"
+        },
+        {
+          "image": "/images/christina.svg",
+          "title": "Χριστίνα",
+          "text": "22 Πάτρα, ζει μόνη, σπουδάζει σε ΙΕΚ αισθητικής"
+        },
+        {
+          "image": "/images/apostolos.svg",
+          "title": "Απόστολος",
+          "text": "25 Θεσσαλονίκη, ζει στο πατρικό, σπουδάζει προγραμματισμό σε ΙΕΚ"
+        },
+        {
+          "image": "/images/antigoni.svg",
+          "title": "Αντιγόνη",
+          "text": "23 Αγρίνιο, ζει μόνη και σπουδάζει διοίκηση επιχειρήσεων αγροτικών προϊόντων και τροφίμων."
+        },
+        {
+          "image": "/images/michalis.svg",
+          "title": "Μιχάλης",
+          "text": "24 Θεσσαλονίκη, ζει στο πατρικό, σπούδασε οικονομικά στο ΠΑΜΑΚ και ξεκινά MBA."
         }
       ]
     },

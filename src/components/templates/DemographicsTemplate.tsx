@@ -11,25 +11,21 @@ interface DemographicsTemplateProps {
 
 const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) => {
   return (
-    <div className={styles.content}>
-      <div className={styles.demographicsGrid}>
+      <div className={styles.participants} data-section={section.id}>
         {section.children.map((child, index) => (
-          <div key={index} className={styles.demographicsCard}>
-            <div className={styles.imageContainer}>
-              <Image 
-                src={child.image} 
-                alt={child.title}
-                width={400}
-                height={400}
-                className={styles.profileImage}
-              />
-            </div>
-            <h3 className={styles.cardTitle}>{child.title}</h3>
-            <p className={styles.cardText}>{child.text}</p>
+          <div key={index} className={styles.participant}>
+            <Image 
+              src={child.image} 
+              alt={child.title}
+              width={100}
+              height={100}
+              loading="lazy"
+            />
+            <div className={styles.participantName}>{child.title}</div>
+            <div className={styles.participantDetails}>{child.text}</div>
           </div>
         ))}
       </div>
-    </div>
   );
 };
 

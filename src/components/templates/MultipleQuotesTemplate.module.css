@@ -16,7 +16,7 @@
   border-left: 4px solid var(--yellow-color);
 }
 
-.quoteCardEven {
+.quoteCardOdd {
   flex-direction: row-reverse;
   border-left: none;
   border-right: 4px solid var(--orange-dark-color);
@@ -35,7 +35,7 @@
   transition: transform 0.3s ease;
 }
 
-.testimonialImageEven {
+.testimonialImageOdd {
   border: 3px solid var(--orange-dark-color);
 }
 
