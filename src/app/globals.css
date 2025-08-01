@@ -170,3 +170,9 @@ a:focus {
   font-style: italic;
 }
 
+.huge {
+	text-align: left;
+	font-size: 48px;
+	line-height: 1.2;
+	margin-bottom: 1.5rem;
+}
