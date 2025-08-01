@@ -112,9 +112,8 @@
     {
       "id": "conclusion",
       "template": "single-quote",
-      "title": "The Future is Now",
-      "subtitle": "Generation Z isn't just preparing for the future—they're actively creating it through their values, choices, and unwavering commitment to authenticity and social change.",
-      "caption": "Dr. Sarah Mitchell, Lead Researcher"
+      "title": "Μερικοί δεν ξέρουν ότι",
+      "content": "<p>Οι νέοι και οι νέες σήμερα μπαίνουν νωρίτερα στην αγορά εργασίας από ό,τι προηγούμενες γενιές</p><p><strong>Αυτό ίσως να μην φαίνεται με την πρώτη ματιά</strong></p>"
     }
   ]
 }

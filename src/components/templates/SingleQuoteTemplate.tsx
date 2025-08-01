@@ -12,10 +12,7 @@ const SingleQuoteTemplate: React.FC<SingleQuoteTemplateProps> = ({ section }) =>
   return (
     <div className={styles.content}>
       <h2 className={styles.title}>{section.title}</h2>
-      <blockquote className={styles.quote}>
-        "{section.subtitle}"
-      </blockquote>
-      <p className={styles.caption}>— {section.caption}</p>
+      <div dangerouslySetInnerHTML={{ __html: section.content }} />
     </div>
   );
 };
