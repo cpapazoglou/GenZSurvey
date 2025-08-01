@@ -112,8 +112,27 @@
     {
       "id": "conclusion",
       "template": "single-quote",
-      "title": "Μερικοί δεν ξέρουν ότι",
-      "content": "<p>Οι νέοι και οι νέες σήμερα μπαίνουν νωρίτερα στην αγορά εργασίας από ό,τι προηγούμενες γενιές</p><p><strong>Αυτό ίσως να μην φαίνεται με την πρώτη ματιά</strong></p>"
+      "content": "<h2>Μερικοί δεν ξέρουν ότι</h2><p>Οι νέοι και οι νέες σήμερα μπαίνουν νωρίτερα στην αγορά εργασίας από ό,τι προηγούμενες γενιές</p><p><strong class=\"orange\">Αυτό ίσως να μην φαίνεται με την πρώτη ματιά</strong></p>"
+    },
+		{
+			"id": "private-sector-stats",
+			"template": "single-quote",
+			"content": "<h2 class=\"purple\">Το 2013 το <strong>20,25%</strong> των εργαζομένων στον ιδιωτικό τομέα ήταν νέοι 19-29 ετών</h2><h2 class=\"orange\">Το 2023 ήταν το <strong>19,38%</strong></h2><p>Αλλά σήμερα οι νέοι είναι <strong class=\"orange\">λιγότεροι</strong>.</p>"
+		},
+    {
+      "id": "population-employment-comparison",
+      "template": "single-quote",
+      "content": "<h2 class=\"purple\">Το 2013 στην Ελλάδα κατοικούσαν σχεδόν <strong>1,4 εκατομμύρια</strong> νέες και νέοι ηλικίας 19-29.</h2><h2 class=\"orange\">Κι από αυτούς μόνο το <strong>20,2%</strong> δούλευε.</h2><h2 class=\"purple\">Το 2023 στην Ελλάδα κατοικούσαν μόνο <strong>1 εκατομμύριο</strong> νέες και νέοι ηλικίας 19-29.</h2><h2 class=\"orange\">Κι από αυτούς δούλευε το <strong>42,3%</strong>.</h2>"
+    },
+    {
+      "id": "employment-numbers",
+      "template": "single-quote",
+      "content": "<h2 class=\"purple\">εργαζόμενοι νέοι το 2013: <strong>277.741</strong></h2><h2 class=\"orange\">εργαζόμενοι νέοι το 2023: <strong>445.208</strong></h2>"
+    },
+    {
+      "id": "education-salary-paradox",
+      "template": "single-quote",
+      "content": "<p>όμως αυτή δεν είναι η μόνη διαφορά.</p><p>οι νέοι σήμερα είναι πιο μορφωμένοι, αλλά <strong class=\"orange\">αμείβονται λιγότερο</strong> και <strong class=\"orange\">αισθάνονται χειρότερα</strong> στη δουλειά τους.</p><h2 class=\"purple\">μέσος μισθός 2009: <strong>21.606</strong></h2><h2 class=\"orange\">μέσος μισθός 2021: <strong>16.235</strong></h2><p class=\"italic\">(σε τιμές 2021)</p><p><strong class=\"orange\">Είναι η πιο μορφωμένη και ταυτόχρονα η πιο κακοπληρωμένη γενιά των τελευταίων δεκαετιών</strong></p>"
     }
   ]
 }

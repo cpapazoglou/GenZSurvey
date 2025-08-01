@@ -1,8 +1,10 @@
-.title {
+.content h2 {
   text-align: left;
-	font-size: 42px;
+	font-size: 48px;
 	margin-bottom: 30px;
 	color: var(--purple-color);
+	line-height: 1.2;
+	font-weight: 400;
 }
 
 .content p {
@@ -14,6 +16,5 @@
 }
 
 .content strong {
-	color: var(--orange-color);
 	font-weight: 700;
 }

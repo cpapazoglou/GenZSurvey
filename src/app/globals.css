@@ -54,10 +54,11 @@
     --orange-color: #d16d60;
     --orange-dark-color: #c4665a;
     --purple-color: #4e3254;
+    --purple-dark-color: #3d2643;
     --yellow-color: #f7a941;
     
     /* Font Variables */
-    --font-heading: 'Averta-Bold', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Averta', system-ui, -apple-system, sans-serif;
     --font-body: 'Averta', system-ui, -apple-system, sans-serif;
     --font-body-light: 'Antenna03Book', system-ui, -apple-system, sans-serif;
     --font-body-medium: 'Antenna04Medium', system-ui, -apple-system, sans-serif;
@@ -154,5 +155,18 @@ a:focus {
 /* Selection styles */
 ::selection {
   background-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Global color classes for HTML content */
+.purple {
+  color: var(--purple-dark-color) !important;
+}
+
+.orange {
+  color: var(--orange-dark-color) !important;
+}
+
+.italic {
+  font-style: italic;
 }
 
