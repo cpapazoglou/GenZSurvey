@@ -7,6 +7,7 @@ import MultipleQuotesTemplate from './templates/MultipleQuotesTemplate';
 import TextTemplate from './templates/TextTemplate';
 import DemographicsTemplate from './templates/DemographicsTemplate';
 import SingleQuoteTemplate from './templates/SingleQuoteTemplate';
+import MixedTemplate from './templates/MixedTemplate';
 import styles from './ParallaxSection.module.css';
 
 interface ParallaxSectionProps {
@@ -26,6 +27,8 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
         return <DemographicsTemplate section={section} />;
       case 'single-quote':
         return <SingleQuoteTemplate section={section} />;
+      case 'mixed':
+        return <MixedTemplate section={section} />;
       default:
         return <div>Unknown template</div>;
     }

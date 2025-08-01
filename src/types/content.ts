@@ -42,7 +42,13 @@ export interface SingleQuoteSection {
 	content: string;
 }
 
-export type Section = HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection;
+export interface MixedSection {
+  id: string;
+  template: 'mixed';
+  children: (HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection)[];
+}
+
+export type Section = HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection | MixedSection;
 
 export interface SiteData {
   sections: Section[];
