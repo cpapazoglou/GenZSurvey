@@ -13,11 +13,27 @@
   padding: 25px;
   width: 100%;
   max-width: 704px;
-  border-left: 4px solid var(--yellow-color);
 }
 
 .quoteCardOdd {
   flex-direction: row-reverse;
+}
+
+/* Border color classes based on title ending */
+.yellowBorder {
+  border-left: 4px solid var(--yellow-color);
+}
+
+.yellowBorder.quoteCardOdd {
+  border-left: none;
+  border-right: 4px solid var(--yellow-color);
+}
+
+.orangeBorder {
+  border-left: 4px solid var(--orange-dark-color);
+}
+
+.orangeBorder.quoteCardOdd {
   border-left: none;
   border-right: 4px solid var(--orange-dark-color);
 }
@@ -35,7 +51,12 @@
   transition: transform 0.3s ease;
 }
 
-.testimonialImageOdd {
+/* Image border colors based on border class */
+.yellowBorder .testimonialImageImg {
+  border: 3px solid var(--yellow-color);
+}
+
+.orangeBorder .testimonialImageImg {
   border: 3px solid var(--orange-dark-color);
 }
 

@@ -12,19 +12,22 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 		<div className={styles.contentSection}>
 			{section.children.map((quote, index) => {
 				const isOdd = index % 2 === 1;
+				const name = quote.title.split(',')[0];
+				const endsWithSigma = name.endsWith('ς');
+				const borderColorClass = endsWithSigma ? styles.yellowBorder : styles.orangeBorder;
 
 				return (
 					<div
 						key={index}
-						className={`${styles.quoteCard} ${isOdd ? styles.quoteCardOdd : ''}`}
+						className={`${styles.quoteCard} ${isOdd ? styles.quoteCardOdd : ''} ${borderColorClass}`}
 					>
 						<div className={styles.testimonialImage}>
 							<Image
 								src={quote.image}
-								alt={quote.title.split(',')[0]}
+								alt={name}
 								width={100}
 								height={100}
-								className={`${styles.testimonialImageImg} ${isOdd ? styles.testimonialImageOdd : ''}`}
+								className={styles.testimonialImageImg}
 							/>
 						</div>
 						<div className={styles.testimonialContent}>
