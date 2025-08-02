@@ -15,6 +15,7 @@ export interface MultipleQuotesSection {
   id: string;
   template: 'multiple-quotes';
   children: MultipleQuotesChild[];
+  layout?: 'row' | 'column';
 }
 
 export interface TextSection {

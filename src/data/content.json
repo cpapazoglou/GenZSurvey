@@ -9,6 +9,7 @@
     {
       "id": "quotes",
       "template": "multiple-quotes",
+			"layout": "row",
       "children": [
         {
           "image": "/images/nikolas.svg",
@@ -91,6 +92,7 @@
     {
       "id": "additional-quotes",
       "template": "multiple-quotes",
+      "layout": "row",
       "children": [
         {
           "image": "/images/eleni.svg",
@@ -146,6 +148,7 @@
         {
           "id": "bad-experiences-quotes",
           "template": "multiple-quotes",
+					"layout": "column",
           "children": [
             {
               "image": "/images/christos.svg",
@@ -174,6 +177,7 @@
         {
           "id": "ideal-job-quotes",
           "template": "multiple-quotes",
+					"layout": "column",
           "children": [
             {
               "image": "/images/apostolos.svg",

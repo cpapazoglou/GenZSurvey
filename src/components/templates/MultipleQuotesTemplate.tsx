@@ -8,6 +8,8 @@ interface MultipleQuotesTemplateProps {
 }
 
 const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section }) => {
+	const layout = section.layout || 'row';
+	
 	return (
 		<div className={styles.contentSection}>
 			{section.children.map((quote, index) => {
@@ -16,10 +18,12 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 				const endsWithSigma = name.endsWith('ς');
 				const borderColorClass = endsWithSigma ? styles.yellowBorder : styles.orangeBorder;
 
+				const cardClasses = `${styles.quoteCard} ${layout === 'column' ? styles.quoteCardColumn : ''} ${isOdd ? styles.quoteCardOdd : ''} ${borderColorClass}`;
+
 				return (
 					<div
 						key={index}
-						className={`${styles.quoteCard} ${isOdd ? styles.quoteCardOdd : ''} ${borderColorClass}`}
+						className={cardClasses}
 					>
 						<div className={styles.testimonialImage}>
 							<Image

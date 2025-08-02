@@ -83,3 +83,99 @@
     color: var(--orange-dark-color);
     font-weight: 700;
 }
+
+/* Column layout styles for the new variation */
+.quoteCard.quoteCardColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  width: 100%;
+}
+
+/* Column layout border colors - keep side borders like row layout */
+.yellowBorder.quoteCard.quoteCardColumn {
+  border-left: 4px solid var(--yellow-color);
+  border-top: none;
+  border-right: none;
+}
+
+.yellowBorder.quoteCard.quoteCardColumn:nth-child(even) {
+  border-left: none;
+  border-right: 4px solid var(--yellow-color);
+}
+
+.orangeBorder.quoteCard.quoteCardColumn {
+  border-left: 4px solid var(--orange-dark-color);
+  border-top: none;
+  border-right: none;
+}
+
+.orangeBorder.quoteCard.quoteCardColumn:nth-child(even) {
+  border-left: none;
+  border-right: 4px solid var(--orange-dark-color);
+}
+
+/* Column layout content styling */
+.quoteCard.quoteCardColumn .testimonialContent {
+  display: flex;
+  flex-direction: column;
+  order: 1;
+}
+
+/* Change order for column layout - text first, then title */
+.quoteCard.quoteCardColumn .testimonialQuote {
+  order: 1;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #212121;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.quoteCard.quoteCardColumn .testimonialName {
+  order: 2;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 0;
+}
+
+.quoteCard.quoteCardColumn .testimonialImage {
+  order: 3;
+  flex-shrink: 0;
+}
+
+/* Alternating left-right alignment for column layout */
+.quoteCard.quoteCardColumn:nth-child(odd) .testimonialContent {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.quoteCard.quoteCardColumn:nth-child(even) .testimonialContent {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.quoteCard.quoteCardColumn:nth-child(odd) {
+  align-items: flex-start;
+}
+
+.quoteCard.quoteCardColumn:nth-child(even) {
+  align-items: flex-end;
+}
+
+/* Responsive adjustments for column layout */
+@media (max-width: 768px) {
+  .quoteCard.quoteCardColumn {
+    padding: 20px;
+  }
+  
+  .quoteCard.quoteCardColumn .testimonialQuote {
+    font-size: 0.9rem;
+  }
+  
+  .quoteCard.quoteCardColumn .testimonialName {
+    font-size: 1.2rem;
+  }
+}
