@@ -12,11 +12,10 @@ export default function HomePage() {
   return (
     <main style={styles.main}>
       <ReadingProgress />
-      {data.sections.map((section, index) => (
+      {data.sections.map((section) => (
         <ParallaxSection
           key={section.id}
           section={section}
-          index={index}
         />
         ))}
       <div className="scrollIndicator">
