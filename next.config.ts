@@ -6,7 +6,10 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   images: {
     unoptimized: true
-  }
+  },
+  generateBuildId: () => 'build',
+  distDir: 'out',
+  assetPrefix: ''
 };
 
 export default nextConfig;
