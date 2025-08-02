@@ -22,7 +22,7 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) 
               loading="lazy"
             />
             <div className={styles.participantName}>{child.title}</div>
-            <div className={styles.participantDetails}>{child.text}</div>
+            <div className={styles.participantDetails} dangerouslySetInnerHTML={{ __html: child.text }} />
           </div>
         ))}
       </div>

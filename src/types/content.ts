@@ -39,8 +39,7 @@ export interface DemographicsSection {
 export interface SingleQuoteSection {
 	id: string;
   template: 'single-quote';
-  title: string;
-	content: string;
+  text: string;
 }
 
 export interface MixedSection {
