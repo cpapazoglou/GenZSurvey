@@ -17,7 +17,8 @@
     "@fullpage/react-fullpage": "^0.1.49",
     "next": "^15.4.5",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-tiny-popover": "^8.1.6"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
