@@ -99,7 +99,33 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: linear-gradient(90deg, var(--orange-color), var(--purple-color));
   width: 0%;
-  transition: width 0.3s ease-out;
+  transition: width 0.1s ease-out;
+}
+
+/* Scroll indicator styles */
+.scrollIndicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.scrollArrow {
+  font-size: 2rem;
+  color: var(--purple-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Hide scrollbar but keep functionality */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
 }
 
 /* Responsive typography */
@@ -126,23 +152,6 @@ a:focus {
   background-color: rgba(102, 126, 234, 0.3);
 }
 
-/* Fullpage.js custom styles */
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  background: var(--purple-color);
-}
-
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span,
-#fp-nav ul li:hover a.active span,
-.fp-slidesNav ul li:hover a.active span {
-  background: var(--orange-color);
-}
-
-.fp-section {
-  background-color: var(--background-color);
-}
-
 /* Global color classes for HTML content */
 .purple {
   color: var(--purple-dark-color) !important;
@@ -167,36 +176,4 @@ a:focus {
 p.author-quote {
   font-size: 1.4rem !important;
   line-height: 1.7 !important;
-}
-
-/* Loading animation */
-@keyframes pulse {
-  0%, 80%, 100% {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.loading-bullet {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--purple-color);
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-.loading-bullet:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.loading-bullet:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.loading-bullet:nth-child(3) {
-  animation-delay: 0.4s;
 }

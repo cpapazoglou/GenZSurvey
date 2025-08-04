@@ -1,23 +1,31 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-interface ReadingProgressProps {
-  currentSection: number;
-  totalSections: number;
-}
-
-const ReadingProgress: React.FC<ReadingProgressProps> = ({ 
-  currentSection, 
-  totalSections 
-}) => {
+const ReadingProgress: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Calculate progress based on current section
-    const scrollPercent = ((currentSection + 1) / totalSections) * 100;
-    setScrollProgress(scrollPercent);
-  }, [currentSection, totalSections]);
+    const updateScrollProgress = () => {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrollPercent);
+    };
+
+    const handleScroll = () => {
+      updateScrollProgress();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial calculation
+    updateScrollProgress();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="reading-progress">
