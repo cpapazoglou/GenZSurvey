@@ -14,18 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={styles.body}>
+      <body>
         {children}
       </body>
     </html>
   );
 }
-
-const styles = {
-  body: {
-    margin: 0,
-    padding: 0,
-    backgroundColor: '#f8fbee',
-    overflowX: 'hidden' as const,
-  },
-};
