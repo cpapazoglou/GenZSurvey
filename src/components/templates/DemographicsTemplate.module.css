@@ -6,7 +6,7 @@
   padding: 0;
   text-align: left;
   margin: 100px auto;
-  position: relative;
+  /* ...existing code... */
 }
 
 .participantName {
@@ -21,7 +21,6 @@
   text-align: center;
 }
 
-/* First row participants (1-5) - bubbles on top */
 .participant:nth-child(-n + 5) .participantDetails {
   font-size: 11px;
   position: absolute;
@@ -40,7 +39,6 @@
   pointer-events: none;
 }
 
-/* Second row participants (6-10) - bubbles on bottom */
 .participant:nth-child(n + 6) .participantDetails {
   font-size: 11px;
   position: absolute;
@@ -60,14 +58,6 @@
   pointer-events: none;
 }
 
-.participantDetails.show,
-.participant.active .participantDetails {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto;
-}
-
-/* Pointer for first row bubbles (pointing down) */
 .participant:nth-child(-n + 5) .participantDetails::after {
   content: "";
   position: absolute;
@@ -81,7 +71,6 @@
   border-top: 10px solid white;
 }
 
-/* Pointer for second row bubbles (pointing up) */
 .participant:nth-child(n + 6) .participantDetails::after {
   content: "";
   position: absolute;

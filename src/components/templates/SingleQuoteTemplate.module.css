@@ -1,20 +1,20 @@
 .content h2 {
   text-align: left;
-	font-size: 48px;
-	margin-bottom: 30px;
-	color: var(--purple-color);
-	line-height: 1.2;
-	font-weight: 400;
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: var(--purple-color);
+  line-height: 1.2;
+  font-weight: 400;
 }
 
 .content p {
   font-size: 1.1rem;
-	line-height: 1.8;
-	margin-bottom: 25px;
-	color: var(--text-color);
-	text-align: left;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  text-align: left;
 }
 
 .content strong {
-	font-weight: 700;
+  font-weight: 700;
 }
