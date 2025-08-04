@@ -36,7 +36,7 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 						</div>
 						<div className={styles.testimonialContent}>
 							<h3 className={styles.testimonialName}>{quote.title}</h3>
-							<p 
+							<div
 								className={styles.testimonialQuote}
 								dangerouslySetInnerHTML={{ __html: quote.text }}
 							/>
