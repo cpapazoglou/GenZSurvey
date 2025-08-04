@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   padding: 0 20px;
 }
 

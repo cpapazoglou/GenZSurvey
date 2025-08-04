@@ -30,11 +30,7 @@ const MixedTemplate: React.FC<MixedTemplateProps> = ({ section }) => {
     }
   };
 
-  return (
-    <div>
-      {section.children.map((child, index) => renderChild(child, index))}
-    </div>
-  );
+  return section.children.map((child, index) => renderChild(child, index));
 };
 
 export default MixedTemplate;
