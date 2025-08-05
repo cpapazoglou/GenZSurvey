@@ -3,6 +3,7 @@ export interface HeroSection {
   template: 'hero';
   title: string;
   subtitle: string;
+  animation?: string;
 }
 
 export interface MultipleQuotesChild {
@@ -16,12 +17,14 @@ export interface MultipleQuotesSection {
   template: 'multiple-quotes';
   children: MultipleQuotesChild[];
   layout?: 'row' | 'column';
+  animation?: string;
 }
 
 export interface TextSection {
   id: string;
   template: 'text';
   text: string;
+  animation?: string;
 }
 
 export interface DemographicsChild {
@@ -34,18 +37,21 @@ export interface DemographicsSection {
   id: string;
   template: 'demographics';
   children: DemographicsChild[];
+  animation?: string;
 }
 
 export interface SingleQuoteSection {
 	id: string;
   template: 'single-quote';
   text: string;
+  animation?: string;
 }
 
 export interface MixedSection {
   id: string;
   template: 'mixed';
   children: (HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection)[];
+  animation?: string;
 }
 
 export type Section = HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection | MixedSection;

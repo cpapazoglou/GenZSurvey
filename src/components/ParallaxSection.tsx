@@ -34,8 +34,14 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
     }
   };
 
+  // Apply parallax class only when animation is "parallax"
+  const sectionClasses = [
+    styles.section,
+    section.animation === 'parallax' ? styles.parallax : ''
+  ].join(' ');
+
   return (
-    <section className={styles.section}>
+    <section className={sectionClasses}>
       <div className={styles.container}>
         {renderTemplate()}
       </div>
