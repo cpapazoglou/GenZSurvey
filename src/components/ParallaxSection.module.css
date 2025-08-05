@@ -3,12 +3,44 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: var(--background-color);
   padding: 0 20px;
+  min-height: 100vh;
+  width: 100%;
+	z-index: 11;
 }
 
 .container {
   max-width: 704px;
+	margin: 0 auto;
   width: 100%;
   z-index: 1;
+}
+
+.parallax[data-section] {
+	background-color: var(--background-color);
+	display: flex;
+	align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  will-change: opacity;
+  pointer-events: none; /* Allow scrolling through the fixed element */
+	opacity: 0;
+	visibility: hidden; /* Hide the element initially */
+}
+
+.parallax .container {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto; /* Re-enable interactions for content */
+}
+
+/* Specific control for quotes section visibility */
+.parallax[data-section="quotes"] {
+  opacity: 0;
+  visibility: visible; /* Allow JS to control opacity */
+  transition: opacity 0.5s ease-in-out;
 }

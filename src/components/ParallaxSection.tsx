@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Section } from '@/types/content';
 import HeroTemplate from './templates/HeroTemplate';
 import MultipleQuotesTemplate from './templates/MultipleQuotesTemplate';
@@ -15,6 +15,8 @@ interface ParallaxSectionProps {
 }
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
+  const spacerRef = useRef<HTMLElement>(null);
+
   const renderTemplate = () => {
     switch (section.template) {
       case 'hero':
@@ -34,16 +36,42 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
     }
   };
 
-  // Apply parallax class only when animation is "parallax"
-  const sectionClasses = [
-    styles.section,
-    section.animation === 'parallax' ? styles.parallax : ''
-  ].join(' ');
+  const content = renderTemplate();
 
+  // For parallax sections: invisible spacer + fixed overlay
+  if (section.animation === 'parallax') {
+    return (
+      <>
+        {/* Invisible spacer maintains document flow and scroll behavior */}
+        <section 
+          ref={spacerRef}
+          className={styles.section} 
+          style={{ visibility: 'hidden' }}
+        >
+          <div className={styles.container}>
+            {content}
+          </div>
+        </section>
+        
+        {/* Fixed parallax overlay - only renders after mount to avoid hydration issues */}
+        
+				<section 
+					className={styles.parallax}
+					data-section={section.id}
+				>
+					<div className={styles.container}>
+						{content}
+					</div>
+				</section>
+      </>
+    );
+  }
+
+  // Regular sections - normal scroll behavior
   return (
-    <section className={sectionClasses}>
+    <section className={styles.section} data-section={section.id}>
       <div className={styles.container}>
-        {renderTemplate()}
+        {content}
       </div>
     </section>
   );
