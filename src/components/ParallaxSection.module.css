@@ -29,18 +29,11 @@
   will-change: opacity;
   pointer-events: none; /* Allow scrolling through the fixed element */
 	opacity: 0;
-	visibility: hidden; /* Hide the element initially */
+	visibility: hidden;
 }
 
 .parallax .container {
   position: relative;
   z-index: 2;
   pointer-events: auto; /* Re-enable interactions for content */
-}
-
-/* Specific control for quotes section visibility */
-.parallax[data-section="quotes"] {
-  opacity: 0;
-  visibility: visible; /* Allow JS to control opacity */
-  transition: opacity 0.5s ease-in-out;
 }

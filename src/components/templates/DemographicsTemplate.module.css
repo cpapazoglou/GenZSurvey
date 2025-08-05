@@ -38,3 +38,9 @@
     margin-bottom: 40px;
   }
 }
+
+/* Ensure popover is always fully visible */
+.participants :global(.react-tiny-popover-container) {
+  opacity: 1 !important;
+  z-index: 10000 !important;
+}

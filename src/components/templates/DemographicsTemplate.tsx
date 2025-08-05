@@ -23,6 +23,7 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) 
             padding={12}
             reposition={true}
             onClickOutside={() => setPopoverOpenIndex(null)}
+            containerStyle={{ zIndex: '10000', opacity: '1' }}
             content={({ position }: { position: string }) => (
               <div style={getPopoverContentStyle(position)}>
                 <div style={getArrowStyle(position)} />
@@ -86,8 +87,8 @@ const getArrowStyle = (position: string) => {
 };
 
 const getPopoverContentStyle = (position: string) => {
-  const baseStyle = {
-    position: 'relative' as const,
+  const baseStyle: React.CSSProperties = {
+    position: 'relative',
     backgroundColor: 'white',
     border: '1px solid #e0e0e0',
     borderRadius: '10px',
@@ -95,9 +96,11 @@ const getPopoverContentStyle = (position: string) => {
     fontSize: '11px',
     maxWidth: '180px',
     minWidth: '150px',
-    zIndex: 1000,
+    zIndex: 99999, // Very high z-index
     lineHeight: '1.4',
     color: '#333',
+    opacity: 1, // Force full opacity
+    isolation: 'isolate', // Create new stacking context
   };
 
   if (position === 'bottom') {
