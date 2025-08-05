@@ -96,7 +96,7 @@
       "id": "additional-quotes",
       "template": "multiple-quotes",
       "layout": "row",
-			"animation": "parallax",
+			"animation": "fade-in",
       "children": [
         {
           "image": "/images/eleni.svg",
@@ -142,7 +142,7 @@
     {
       "id": "education-salary-paradox",
       "template": "single-quote",
-			"animation": "parallax",
+			"animation": "fade-in",
       "text": "<p>όμως αυτή δεν είναι η μόνη διαφορά.</p><p>οι νέοι σήμερα είναι πιο μορφωμένοι, αλλά <strong class=\"orange\">αμείβονται λιγότερο</strong> και <strong class=\"orange\">αισθάνονται χειρότερα</strong> στη δουλειά τους.</p><h2 class=\"purple\">μέσος μισθός 2009: <strong>21.606</strong></h2><h2 class=\"orange\">μέσος μισθός 2021: <strong>16.235</strong></h2><p class=\"italic\">(σε τιμές 2021)</p><p><strong class=\"orange\">Είναι η πιο μορφωμένη και ταυτόχρονα η πιο κακοπληρωμένη γενιά των τελευταίων δεκαετιών</strong></p>"
     },
     {
@@ -230,7 +230,7 @@
           "id": "strategic-resilience",
           "template": "text",
           "class": "author-quote",
-					"animation": "parallax",
+					"animation": "fade-in",
           "text": "<p>\"Ο πειραματισμός τους — από τον τουρισμό στο digital marketing, από freelance projects μέχρι βραχυχρόνια internships — δεν είναι χάος\", λέει η κ. Καράμπελα. \"Είναι στρατηγική ανθεκτικότητας. Η καθυστέρηση, οι ετερόκλητες επαγγελματικές δοκιμές, οι διαρκείς αλλαγές κατεύθυνσης δεν δηλώνουν απλώς αβεβαιότητα. Είναι ο τρόπος τους να μάθουν, να αντέξουν, να αποκτήσουν προσαρμοστικότητα στους ασταθείς καιρούς που μεγάλωσαν\".</p>"
         }
       ]
@@ -291,7 +291,7 @@
           "id": "emigration-quotes",
           "template": "multiple-quotes",
           "layout": "row",
-					"animation": "parallax",
+					"animation": "fade-in",
           "children": [
             {
               "image": "/images/antigoni.svg",
@@ -383,7 +383,7 @@
           "id": "michalis-family-quote",
           "template": "multiple-quotes",
           "layout": "column",
-					"animation": "parallax",
+					"animation": "fade-in",
           "children": [
             {
               "image": "/images/michalis.svg",

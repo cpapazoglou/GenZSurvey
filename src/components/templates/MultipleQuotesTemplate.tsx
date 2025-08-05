@@ -12,7 +12,7 @@ const MultipleQuotesTemplate: React.FC<MultipleQuotesTemplateProps> = ({ section
 	const layout = section.layout || 'row';
 	
 	return (
-		<div className={styles.contentSection} data-section={section.id}>
+		<div className={styles.contentSection}>
 			{section.children.map((quote, index) => {
 				const isOdd = index % 2 === 1;
 				const name = quote.title.split(',')[0];

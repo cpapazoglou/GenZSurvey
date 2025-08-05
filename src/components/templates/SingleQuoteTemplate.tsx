@@ -10,7 +10,7 @@ interface SingleQuoteTemplateProps {
 
 const SingleQuoteTemplate: React.FC<SingleQuoteTemplateProps> = ({ section }) => {
   return (
-    <div className={styles.content} data-section={section.id} dangerouslySetInnerHTML={{ __html: section.text }} />
+    <div className={styles.content} dangerouslySetInnerHTML={{ __html: section.text }} />
   );
 };
 

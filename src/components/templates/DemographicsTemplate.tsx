@@ -14,7 +14,7 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) 
   const [popoverOpenIndex, setPopoverOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className={styles.participants} data-section={section.id}>
+    <div className={styles.participants}>
       {section.children.map((child, index) => {
         return (
           <Popover

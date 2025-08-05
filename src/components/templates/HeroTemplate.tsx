@@ -10,7 +10,7 @@ interface HeroTemplateProps {
 
 const HeroTemplate: React.FC<HeroTemplateProps> = ({ section }) => {
   return (
-    <div className={styles.content} data-section={section.id}>
+    <div className={styles.content}>
       <h1 className={styles.title}>{section.title}</h1>
       <h2 className={styles.subtitle}>{section.subtitle}</h2>
     </div>
