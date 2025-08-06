@@ -116,6 +116,7 @@
     {
       "id": "conclusion",
       "template": "single-quote",
+			"animation":"parallax",
       "text": "<h2>Μερικοί δεν ξέρουν ότι</h2><p>Οι νέοι και οι νέες σήμερα μπαίνουν νωρίτερα στην αγορά εργασίας από ό,τι προηγούμενες γενιές</p><p><strong class=\"orange\">Αυτό ίσως να μην φαίνεται με την πρώτη ματιά</strong></p>"
     },
     {
@@ -126,6 +127,7 @@
     {
       "id": "population-employment-comparison",
       "template": "single-quote",
+			"animation":"parallax",
       "text": "<h2 class=\"purple\">Το 2013 στην Ελλάδα κατοικούσαν σχεδόν <strong>1,4 εκατομμύρια</strong> νέες και νέοι ηλικίας 19-29.</h2><h2 class=\"orange\">Κι από αυτούς μόνο το <strong>20,2%</strong> δούλευε.</h2><h2 class=\"purple\">Το 2023 στην Ελλάδα κατοικούσαν μόνο <strong>1 εκατομμύριο</strong> νέες και νέοι ηλικίας 19-29.</h2><h2 class=\"orange\">Κι από αυτούς δούλευε το <strong>42,3%</strong>.</h2>"
     },
     {
