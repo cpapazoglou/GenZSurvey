@@ -55,15 +55,14 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
         </section>
         
         {/* Fixed parallax overlay - only renders after mount to avoid hydration issues */}
-        
-				<section 
-					className={`${styles.parallax} ${needsOverflow ? styles.overflow : ''}`}
-					data-section={section.id}
-				>
-					<div className={styles.container}>
-						{renderTemplate('content')}
-					</div>
-				</section>
+        <section 
+          className={`${styles.parallax} ${needsOverflow ? styles.overflow : ''}`}
+          data-section={section.id}
+        >
+          <div className={styles.container}>
+            {renderTemplate('content')}
+          </div>
+        </section>
       </>
     );
   }

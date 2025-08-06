@@ -1,23 +1,31 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const ReadingProgress: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const updateScrollProgress = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    setScrollProgress(Math.min(Math.max(scrollPercent, 0), 100));
+  }, []);
+
   useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(scrollPercent);
-    };
-
+    // Throttle scroll events for better performance
+    let ticking = false;
     const handleScroll = () => {
-      updateScrollProgress();
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateScrollProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Initial calculation
     updateScrollProgress();
@@ -25,7 +33,7 @@ const ReadingProgress: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [updateScrollProgress]);
 
   return (
     <div className="reading-progress">

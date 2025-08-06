@@ -41,7 +41,7 @@ export interface DemographicsSection {
 }
 
 export interface SingleQuoteSection {
-	id: string;
+  id: string;
   template: 'single-quote';
   text: string;
   animation?: string;

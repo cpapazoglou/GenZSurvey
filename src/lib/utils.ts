@@ -3,32 +3,43 @@
  * Manages opacity transitions between sections based on viewport position
  */
 
+import { SiteData } from '@/types/content';
+
+interface ParallaxSection {
+  main: string;
+  previous?: string;
+  next?: string;
+}
+
 /**
  * Load parallax sections from content data
- * @param {Object} contentData - The content data object
- * @returns {Array} Array of parallax sections from content.json
+ * @param contentData - The content data object
+ * @returns Array of parallax sections from content.json
  */
-function loadParallaxSections(contentData) {
-	// Filter sections that have animation: "parallax"
-	const parallaxSections = contentData.sections
-		.filter(section => section.animation === 'parallax')
-		.map(section => ({
-			main: `[data-section="${section.id}"]`,
-			// previous and next will be found dynamically if not specified
-		}));
-	
-	return parallaxSections || [];
+function loadParallaxSections(contentData: SiteData): ParallaxSection[] {
+  // Filter sections that have animation: "parallax"
+  const parallaxSections = contentData.sections
+    .filter(section => section.animation === 'parallax')
+    .map(section => ({
+      main: `[data-section="${section.id}"]`,
+      // previous and next will be found dynamically if not specified
+    }));
+  
+  return parallaxSections || [];
 }
 
 /**
  * Throttle function to limit the rate at which a function can fire
- * @param {Function} func - The function to throttle
- * @param {number} limit - The number of milliseconds to limit
- * @returns {Function} The throttled function
+ * @param func - The function to throttle
+ * @param limit - The number of milliseconds to limit
+ * @returns The throttled function
  */
-function throttle(func, limit) {
-  let inThrottle;
-  return function(...args) {
+function throttle<T extends (...args: unknown[]) => void>(
+  func: T, 
+  limit: number
+): (...args: Parameters<T>) => void {
+  let inThrottle = false;
+  return function(this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
@@ -39,15 +50,18 @@ function throttle(func, limit) {
 
 /**
  * Find the previous and next data-section elements relative to a given element
- * @param {HTMLElement} currentElement - The element to find siblings for
- * @returns {Object} Object with previousSection and nextSection elements
+ * @param currentElement - The element to find siblings for
+ * @returns Object with previousSection and nextSection elements
  */
-function findAdjacentSections(currentElement) {
+function findAdjacentSections(currentElement: HTMLElement): {
+  previousSection: HTMLElement | null;
+  nextSection: HTMLElement | null;
+} {
   if (!currentElement) return { previousSection: null, nextSection: null };
   
   // Get all elements with data-section attribute
   const allSections = document.querySelectorAll('[data-section]');
-  const sectionsArray = Array.from(allSections);
+  const sectionsArray = Array.from(allSections) as HTMLElement[];
   
   // Find the index of the current element
   const currentIndex = sectionsArray.findIndex(section => section === currentElement);
@@ -61,30 +75,38 @@ function findAdjacentSections(currentElement) {
 }
 
 /**
- * Manipulate opacity and visibility of a main element based on previous and next elements
- * @param {HTMLElement} mainElement - The element to animate
- * @param {HTMLElement} previousElement - The element that triggers the animation when it goes out of view
- * @param {HTMLElement} nextElement - The element that causes the main element to fade out
- * @param {number} viewportHeight - Current viewport height
+ * Animate a single parallax section based on scroll position
+ * @param mainElement - The main section element
+ * @param previousElement - The previous section element (optional)
+ * @param nextElement - The next section element (optional)
+ * @param viewportHeight - Current viewport height
  */
-function animateParallaxSection(mainElement, previousElement, nextElement, viewportHeight) {
+function animateParallaxSection(
+  mainElement: HTMLElement,
+  previousElement: HTMLElement | null,
+  nextElement: HTMLElement | null,
+  viewportHeight: number
+): void {
   if (!mainElement) return;
   
   // If previous or next elements are not provided, find them dynamically
-  if (!previousElement || !nextElement) {
+  let actualPreviousElement = previousElement;
+  let actualNextElement = nextElement;
+  
+  if (!actualPreviousElement || !actualNextElement) {
     const { previousSection, nextSection } = findAdjacentSections(mainElement);
-    previousElement = previousElement || previousSection;
-    nextElement = nextElement || nextSection;
+    actualPreviousElement = actualPreviousElement || previousSection;
+    actualNextElement = actualNextElement || nextSection;
   }
   
-  if (!previousElement) {
+  if (!actualPreviousElement) {
     // No previous element - keep main element visible
     mainElement.style.opacity = '1';
     mainElement.style.visibility = 'visible';
     return;
   }
   
-  const previousRect = previousElement.getBoundingClientRect();
+  const previousRect = actualPreviousElement.getBoundingClientRect();
   const isPreviousOutOfView = previousRect.bottom <= 0;
   
   if (!isPreviousOutOfView) {
@@ -92,9 +114,9 @@ function animateParallaxSection(mainElement, previousElement, nextElement, viewp
     mainElement.style.opacity = '0';
     mainElement.style.visibility = 'hidden';
   } else {
-    // Previous element is out of view - calculate opacity based on next element position
-    if (nextElement) {
-      const nextRect = nextElement.getBoundingClientRect();
+    // Main element is at least partially in viewport
+    if (actualNextElement) {
+      const nextRect = actualNextElement.getBoundingClientRect();
       const nextTop = nextRect.top;
       let mainOpacity;
       
@@ -129,21 +151,22 @@ function animateParallaxSection(mainElement, previousElement, nextElement, viewp
 /**
  * Initialize all section visibility controllers
  * Call this function when the page loads
- * @param {Object} contentData - The content data object containing sections
+ * @param contentData - The content data object containing sections
+ * @returns Cleanup function
  */
-export function initAllSectionVisibility(contentData) {
+export function initAllSectionVisibility(contentData: SiteData): { cleanup: () => void } {
   // Load parallax sections from content data
-  const ParallaxSections = loadParallaxSections(contentData);
+  const parallaxSections = loadParallaxSections(contentData);
   
   // Single controller for all parallax sections
   const visibilityController = throttle(() => {
     const viewportHeight = window.innerHeight;
     
     // Process each parallax section
-    ParallaxSections.forEach(section => {
-      const mainElement = document.querySelector(section.main);
-      const previousElement = section.previous ? document.querySelector(section.previous) : null;
-      const nextElement = section.next ? document.querySelector(section.next) : null;
+    parallaxSections.forEach(section => {
+      const mainElement = document.querySelector(section.main) as HTMLElement;
+      const previousElement = section.previous ? document.querySelector(section.previous) as HTMLElement : null;
+      const nextElement = section.next ? document.querySelector(section.next) as HTMLElement : null;
       
       if (mainElement) {
         animateParallaxSection(mainElement, previousElement, nextElement, viewportHeight);
