@@ -166,6 +166,4 @@ p.author-quote {
   font-size: 1.4rem !important;
   line-height: 1.7 !important;
 	padding: 40px 0;
-	border-top: 4px solid var(--purple-color);
-	border-bottom: 4px solid var(--purple-color);
 }
