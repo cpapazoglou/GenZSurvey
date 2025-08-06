@@ -12,11 +12,12 @@ interface DemographicsTemplateProps {
 }
 
 const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, type }) => {
-  const [popoverOpenIndex, setPopoverOpenIndex] = useState<number | null>(null);
-  const [visibleParticipants, setVisibleParticipants] = useState<boolean[]>(
-    new Array(section.children.length).fill(false)
-  );
+  const [state, setState] = useState({
+    popoverOpenIndex: null as number | null,
+    visibleParticipants: new Array(section.children.length).fill(false) as boolean[],
+  });
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
   useEffect(() => {
     if (type !== 'content') return;
@@ -36,8 +37,10 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
 
       // Reset state if spacer has scrolled past viewport
       if (spacerRect.bottom < viewportHeight * 0.3) {
-        setPopoverOpenIndex(null);
-        setVisibleParticipants(new Array(section.children.length).fill(false));
+        setState({
+          popoverOpenIndex: null,
+          visibleParticipants: new Array(section.children.length).fill(false)
+        });
         return;
       }
 
@@ -57,32 +60,40 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
       const totalParticipants = section.children.length;
       const visibleCount = scrollProgress > 0 ? Math.max(1, Math.ceil(scrollProgress * totalParticipants)) : 0;
 
-      setVisibleParticipants(prev => {
-        const newState = prev.map((_, index) => index < visibleCount);
-
+      setState(prevState => {
+        const newVisibleParticipants = prevState.visibleParticipants.map((_, index) => index < visibleCount);
+        
         if (visibleCount === 0) {
-          setPopoverOpenIndex(null);
-          return newState;
+          return {
+            popoverOpenIndex: null,
+            visibleParticipants: newVisibleParticipants
+          };
         }
 
         // Check for newly revealed participant
-        const newlyVisible = newState.findIndex((isVisible, index) => isVisible && !prev[index]);
-
+        const newlyVisible = newVisibleParticipants.findIndex((isVisible, index) => 
+          isVisible && !prevState.visibleParticipants[index]
+        );
+        
+        let newPopoverIndex = prevState.popoverOpenIndex;
+        
         if (newlyVisible !== -1) {
-          setPopoverOpenIndex(newlyVisible);
+          newPopoverIndex = newlyVisible;
+        } else if (scrollProgress > 0.95) {
+          // Close popover near end of section
+          newPopoverIndex = null;
         } else if (visibleCount > 0) {
+          // Ensure last visible participant has popover open
           const lastVisibleIndex = visibleCount - 1;
-
-          if (scrollProgress > 0.95) {
-						// Close last participant's popover near end of section
-            setPopoverOpenIndex(null);
-          } else if (popoverOpenIndex === null || popoverOpenIndex !== lastVisibleIndex) {
-            // Ensure last visible participant has popover open
-            setPopoverOpenIndex(lastVisibleIndex);
+          if (prevState.popoverOpenIndex !== lastVisibleIndex) {
+            newPopoverIndex = lastVisibleIndex;
           }
         }
 
-        return newState;
+        return {
+          popoverOpenIndex: newPopoverIndex,
+          visibleParticipants: newVisibleParticipants
+        };
       });
     };
 
@@ -107,19 +118,17 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
   return (
     <div ref={containerRef} className={styles.participants} data-type={type}>
       {section.children.map((child, index) => {
-        const isVisible = visibleParticipants[index];
-        
-        const isMobile = window.innerWidth < 768;
+        const isVisible = state.visibleParticipants[index];
         const shouldUseBottomPosition = isMobile && index < 2;
         
         return (
           <Popover
             key={index}
-            isOpen={popoverOpenIndex === index}
+            isOpen={state.popoverOpenIndex === index}
             padding={12}
             reposition={true}
             positions={shouldUseBottomPosition ? ['bottom', 'top'] : ['top']}
-            onClickOutside={() => setPopoverOpenIndex(null)}
+            onClickOutside={() => setState(prev => ({ ...prev, popoverOpenIndex: null }))}
             containerStyle={{ zIndex: '10000', opacity: '1' }}
             content={({ position }: { position: string }) => (
               <div style={getPopoverContentStyle(position)}>
@@ -130,7 +139,10 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
           >
             <div 
               className={styles.participant}
-              onClick={() => setPopoverOpenIndex(popoverOpenIndex === index ? null : index)}
+              onClick={() => setState(prev => ({ 
+                ...prev, 
+                popoverOpenIndex: prev.popoverOpenIndex === index ? null : index 
+              }))}
               style={type === 'content' ? {
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'scale(1)' : 'scale(0.3)',
@@ -158,61 +170,52 @@ const getArrowStyle = (position: string) => {
     position: 'absolute' as const,
     width: 0,
     height: 0,
+    left: '50%',
+    transform: 'translateX(-50%)',
   };
 
+  const borderStyle = `${arrowSize}px solid transparent`;
+  
   if (position === 'bottom') {
     return {
       ...baseStyle,
       top: `-${arrowSize}px`,
-      left: '50%',
-      transform: 'translateX(-50%)',
-      borderLeft: `${arrowSize}px solid transparent`,
-      borderRight: `${arrowSize}px solid transparent`,
+      borderLeft: borderStyle,
+      borderRight: borderStyle,
       borderBottom: `${arrowSize}px solid white`,
     };
-  } else if (position === 'top') {
-    return {
-      ...baseStyle,
-      bottom: `-${arrowSize}px`,
-      left: '50%',
-      transform: 'translateX(-50%)',
-      borderLeft: `${arrowSize}px solid transparent`,
-      borderRight: `${arrowSize}px solid transparent`,
-      borderTop: `${arrowSize}px solid white`,
-    };
   }
-
-  return {};
+  
+  return {
+    ...baseStyle,
+    bottom: `-${arrowSize}px`,
+    borderLeft: borderStyle,
+    borderRight: borderStyle,
+    borderTop: `${arrowSize}px solid white`,
+  };
 };
 
 const getPopoverContentStyle = (position: string) => {
-  const baseStyle: React.CSSProperties = {
-    position: 'relative',
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+  
+  return {
+    position: 'relative' as const,
     backgroundColor: 'white',
     border: '1px solid #e0e0e0',
     borderRadius: '10px',
     padding: '12px',
-    fontSize: window.innerWidth < 768 ? '11px' : '13px',
+    fontSize: isMobile ? '11px' : '13px',
     maxWidth: '180px',
     minWidth: '150px',
-    zIndex: 99999, // Very high z-index
+    zIndex: 99999,
     lineHeight: '1.4',
     color: '#333',
-    opacity: 1, // Force full opacity
-    isolation: 'isolate', // Create new stacking context
+    opacity: 1,
+    isolation: 'isolate' as const,
+    boxShadow: position === 'bottom' 
+      ? '0 -4px 12px rgba(0, 0, 0, 0.15)' 
+      : '0 4px 12px rgba(0, 0, 0, 0.15)',
   };
-
-  if (position === 'bottom') {
-    return {
-      ...baseStyle,
-      boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.15)', // Shadow above for bottom position
-    };
-  } else {
-    return {
-      ...baseStyle,
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)', // Shadow below for top position
-    };
-  }
 };
 
 export default DemographicsTemplate;
