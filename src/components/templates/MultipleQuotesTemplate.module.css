@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
 .quoteCard {
@@ -167,6 +167,10 @@
 
 /* Responsive adjustments for column layout */
 @media (max-width: 768px) {
+	.quoteCard {
+		align-items: flex-start;
+	}
+
   .quoteCard.quoteCardColumn {
     padding: 20px;
   }
