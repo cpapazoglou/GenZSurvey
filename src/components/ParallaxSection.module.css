@@ -16,6 +16,17 @@
   z-index: 1;
 }
 
+.parallaxSpacer {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+  min-height: 130vh;
+  width: 100%;
+	z-index: 11;
+}
+
 .parallax[data-section] {
 	background-color: var(--background-color);
 	display: flex;
@@ -30,6 +41,7 @@
   pointer-events: none; /* Allow scrolling through the fixed element */
 	opacity: 0;
 	visibility: hidden;
+	transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
 .parallax .container {

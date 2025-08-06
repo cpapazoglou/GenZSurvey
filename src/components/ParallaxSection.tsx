@@ -45,7 +45,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
         {/* Invisible spacer maintains document flow and scroll behavior */}
         <section 
           ref={spacerRef}
-          className={styles.section} 
+          className={styles.parallaxSpacer} 
           style={{ visibility: 'hidden' }}
         >
           <div className={styles.container}>
@@ -69,8 +69,8 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
 
   // Regular sections - normal scroll behavior
   return (
-    <section className={styles.section} data-section={section.id}>
-      <div className={styles.container}>
+    <section className={styles.section}>
+      <div className={styles.container} data-section={section.id}>
         {content}
       </div>
     </section>

@@ -11,12 +11,12 @@ export default function HomePage() {
   const data: SiteData = contentData as SiteData;
 
   useEffect(() => {
-    // Initialize section visibility system
-    const { cleanup } = initAllSectionVisibility();
+    // Initialize section visibility system with content data
+    const { cleanup } = initAllSectionVisibility(data);
     
     // Cleanup on unmount
     return cleanup;
-  }, []);
+  }, [data]);
 
   return (
     <main style={styles.main}>
