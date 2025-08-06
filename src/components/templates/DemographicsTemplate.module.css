@@ -8,6 +8,12 @@
   margin: 100px auto;
 }
 
+.participants[data-type="spacer"] {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 250vh;
+}
+
 .participantName {
   font-weight: bold;
   text-align: center;
@@ -18,6 +24,8 @@
   margin-bottom: 30px;
   text-align: center;
   cursor: pointer;
+	transform: scale(0.3);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .participant:hover {

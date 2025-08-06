@@ -91,7 +91,6 @@ function animateParallaxSection(mainElement, previousElement, nextElement, viewp
     // Previous element still in view - hide main element
     mainElement.style.opacity = '0';
     mainElement.style.visibility = 'hidden';
-    console.log(`${mainElement.dataset.section} hidden: ${previousElement.dataset.section || 'previous element'} still in view`);
   } else {
     // Previous element is out of view - calculate opacity based on next element position
     if (nextElement) {
@@ -102,7 +101,6 @@ function animateParallaxSection(mainElement, previousElement, nextElement, viewp
       if (nextTop >= viewportHeight) {
         // Next element hasn't entered viewport yet - full opacity
         mainOpacity = 1;
-        console.log(`${nextElement.dataset.section || 'next element'} not yet in view - ${mainElement.dataset.section} fully visible`);
       } else {
         // Next element is entering or in viewport
         const halfViewport = viewportHeight / 2;
@@ -111,12 +109,10 @@ function animateParallaxSection(mainElement, previousElement, nextElement, viewp
         if (nextCoverage >= halfViewport) {
           // Next element covers half or more of viewport - opacity 0
           mainOpacity = 0;
-          console.log(`${nextElement.dataset.section || 'next element'} covers half+ of viewport - ${mainElement.dataset.section} hidden`);
         } else {
           // Next element covers less than half - fade from 1 to 0
           const coverageRatio = nextCoverage / halfViewport;
           mainOpacity = 1 - coverageRatio;
-          console.log(`${nextElement.dataset.section || 'next element'} covers ${(coverageRatio * 100).toFixed(1)}% of viewport - ${mainElement.dataset.section} opacity ${mainOpacity.toFixed(3)}`);
         }
       }
 
