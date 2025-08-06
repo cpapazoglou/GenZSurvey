@@ -1,43 +1,45 @@
 # Gen Z Survey - Parallax Website
 
-A modern, responsive website built with Next.js featuring react-scroll-parallax effects and static site generation. The site presents research insights about Generation Z through five engaging full-height sections with a clean, unified design.
+A modern, responsive website built with Next.js featuring custom parallax scrolling effects and static site generation. The site presents research insights about Generation Z through interactive sections with smooth scroll-based animations and popover interactions.
 
-## Features
+## ✨ Features
 
-- **Static Site Generation**: Pre-rendered HTML for optimal performance
-- **Advanced Parallax Scrolling**: Powered by react-scroll-parallax for smooth, hardware-accelerated effects
-- **Full-Height Sections**: Each section takes 100vh for immersive viewing experience
-- **Unified Design**: Clean, single background color across all sections for better readability
-- **CSS-in-JS**: All styling implemented using CSS-in-JS objects
-- **Responsive Design**: Mobile-first approach with fluid typography
-- **Template-Based Architecture**: Five different section templates for varied content presentation
-- **JSON-Driven Content**: Content managed through JSON files with template-specific properties
+- **Static Site Generation (SSG)**: Pre-rendered HTML for optimal performance and easy deployment
+- **Custom Parallax Scrolling**: Vanilla JavaScript-powered parallax effects with scroll-based opacity transitions
+- **Interactive Demographics**: Scroll-triggered participant reveals with responsive popovers
+- **Template-Based Architecture**: 5 different section templates for varied content presentation
+- **JSON-Driven Content**: Content managed through structured JSON with animation configuration
 - **TypeScript**: Full type safety throughout the project
-- **Accessibility**: WCAG compliant with reduced motion support
+- **CSS-in-JS**: Scoped styling with responsive design patterns
+- **Mobile-First Design**: Optimized for all screen sizes with adaptive interactions
+- **Performance Optimized**: Throttled scroll handlers and batched state updates
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
 src/
 ├── app/
 │   ├── layout.tsx          # Root layout with metadata
-│   ├── page.tsx            # Main page with parallax sections
-│   └── globals.css         # Global styles and animations
+│   ├── page.tsx            # Main page orchestrating parallax sections
+│   └── globals.css         # Global styles and CSS variables
 ├── components/
-│   ├── ParallaxSection.tsx # Main parallax section wrapper
+│   ├── ParallaxSection.tsx # Parallax wrapper with spacer/overlay system
+│   ├── ReadingProgress.tsx # Scroll progress indicator
 │   └── templates/          # Template components for different section types
-│       ├── HeroTemplate.tsx
-│       ├── MultipleQuotesTemplate.tsx
-│       ├── TextTemplate.tsx
-│       ├── DemographicsTemplate.tsx
-│       └── SingleQuoteTemplate.tsx
+│       ├── HeroTemplate.tsx           # Landing section
+│       ├── MultipleQuotesTemplate.tsx # Quote grid with participants
+│       ├── TextTemplate.tsx           # Long-form content
+│       ├── DemographicsTemplate.tsx   # Interactive participant showcase
+│       └── SingleQuoteTemplate.tsx    # Featured quote display
 ├── data/
-│   └── content.json        # Site content with template-based structure
+│   └── content.json        # Site content with template and animation config
+├── lib/
+│   └── utils.ts           # Parallax scroll controllers and utilities
 └── types/
-    └── content.ts          # TypeScript type definitions for all templates
+    └── content.ts         # TypeScript interfaces for all templates
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -46,8 +48,10 @@ src/
 
 ### Installation
 
-1. Install dependencies:
+1. Clone the repository and install dependencies:
 ```bash
+git clone <repository-url>
+cd GenZSurvey
 npm install
 ```
 
@@ -58,142 +62,292 @@ npm run dev
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Building for Production
+## 📦 Static Site Generation
 
-Generate static files for deployment:
+### How to Produce Static Output
 
-```bash
-npm run build
+This project is configured for **static site generation** using Next.js's `output: 'export'` feature. The configuration is in `next.config.ts`:
+
+```typescript
+const nextConfig: NextConfig = {
+  output: 'export',           // Enable static export
+  trailingSlash: true,        // Add trailing slashes to URLs
+  images: { unoptimized: true }, // Disable image optimization for static export
+  distDir: 'out',            // Output directory
+  assetPrefix: ''            // No asset prefix for relative paths
+};
 ```
 
-The static files will be generated in the `out/` directory.
+### Build Commands
 
-## Content Management
+```bash
+# Build static site
+npm run build
 
-Content is managed through the `src/data/content.json` file. Each section follows this structure:
+# This runs:
+# 1. next build - Generates static files
+# 2. npm run postbuild - Cleans up 404 files for deployment
+```
+
+### Output Structure
+```
+out/
+├── index.html              # Main page
+├── _next/                  # Next.js assets
+│   ├── static/
+│   └── chunks/
+├── images/                 # Static images
+└── 404.html               # 404 page (removed by postbuild)
+```
+
+### Deployment Options
+- **Static hosting**: Deploy `out/` folder to any static host (Netlify, Vercel, GitHub Pages, etc.)
+- **CDN**: Upload to AWS S3 + CloudFront, Azure Static Web Apps, etc.
+- **Traditional web servers**: Serve static files with Apache/Nginx
+
+## 📝 Content Management
+
+### How to Add New Content
+
+Content is managed through the `src/data/content.json` file using a template-based system. Each section must have:
 
 ```json
 {
   "id": "unique-section-id",
   "template": "template-name",
-  // Additional properties based on template
+  "animation": "parallax",  // Optional: enables parallax scrolling
+  // Additional template-specific properties
 }
 ```
 
 ### Available Templates
 
 #### 1. Hero Template
+For landing sections with title and subtitle:
 ```json
 {
   "id": "hero",
   "template": "hero",
-  "title": "Main heading",
-  "subtitle": "Secondary heading"
+  "title": "Main Heading",
+  "subtitle": "Secondary heading or tagline"
 }
 ```
 
 #### 2. Multiple Quotes Template
+For participant quotes in a grid layout:
 ```json
 {
   "id": "quotes",
   "template": "multiple-quotes",
+  "layout": "row",
+  "animation": "parallax",
   "children": [
     {
-      "image": "/path/to/image1.jpg",
-      "title": "Quote Title 1",
-      "text": "Quote text content"
-    },
-    {
-      "image": "/path/to/image2.jpg",
-      "title": "Quote Title 2", 
-      "text": "Quote text content"
+      "image": "/images/participant1.svg",
+      "title": "Participant Name, Age",
+      "text": "\"Quote content with <strong>HTML</strong> formatting.\""
     }
   ]
 }
 ```
 
 #### 3. Text Template
+For long-form content and research text:
 ```json
 {
   "id": "content",
   "template": "text",
-  "text": "Long form text content"
+  "text": "<p>Rich HTML content with <strong>formatting</strong>, paragraphs, and styling.</p>"
 }
 ```
 
 #### 4. Demographics Template
+Interactive participant showcase with scroll-based reveals and popovers:
 ```json
 {
   "id": "demographics",
   "template": "demographics",
+  "animation": "parallax",
   "children": [
     {
-      "image": "/path/to/chart1.jpg",
-      "title": "Demographic Title 1",
-      "text": "Demographic information and statistics"
-    },
-    {
-      "image": "/path/to/chart2.jpg", 
-      "title": "Demographic Title 2",
-      "text": "Additional demographic insights"
+      "image": "/images/participant.svg",
+      "title": "Participant Name",
+      "text": "<strong>Name, Age</strong>, location, occupation details"
     }
   ]
 }
 ```
 
 #### 5. Single Quote Template
+For featured quotes or key statements:
 ```json
 {
   "id": "quote",
   "template": "single-quote",
-  "title": "Quote title",
-  "subtitle": "The main quote text",
-  "caption": "Attribution"
+  "text": "The featured quote or statement content"
 }
 ```
 
-## Customization
+### Adding New Sections
+
+1. **Add to content.json**: Insert new section object in the `sections` array
+2. **Set unique ID**: Use descriptive, unique identifier
+3. **Choose template**: Select appropriate template from available options
+4. **Configure animation**: Add `"animation": "parallax"` for scroll effects
+5. **Add content**: Fill in template-specific properties
+
+Example:
+```json
+{
+  "id": "new-research-findings",
+  "template": "text", 
+  "animation": "parallax",
+  "text": "<p>New research content...</p>"
+}
+```
+
+## 🎬 Parallax Animation System
+
+### How Parallax Works
+
+The parallax system uses a **dual-element approach** with invisible spacers and fixed overlays:
+
+#### Architecture
+
+1. **Spacer Element** (`parallaxSpacer`):
+   - Invisible (`visibility: hidden`)
+   - Maintains document flow and scroll height
+   - Height: `130vh` (creates scroll distance)
+   - Contains template content for layout calculation
+
+2. **Overlay Element** (`parallax`):
+   - Fixed position (`position: fixed`)
+   - Initially hidden (`opacity: 0`)
+   - Becomes visible when spacer enters viewport
+   - Fades out when next section approaches
+
+#### Animation Flow
+
+```typescript
+// From utils.ts - parallax controller
+if (spacerRect.bottom < viewportHeight * 0.3) {
+  // Spacer scrolled past - reset
+  opacity = 0;
+} else if (nextElement && nextTop < viewportHeight) {
+  // Next section entering - fade out
+  const coverage = (viewportHeight - nextTop) / (viewportHeight / 2);
+  opacity = 1 - coverage;
+} else {
+  // Section active - full opacity
+  opacity = 1;
+}
+```
+
+### How to Set Parallax Animation
+
+#### Method 1: Add to Existing Section
+Add the `animation` property to any section in `content.json`:
+
+```json
+{
+  "id": "existing-section",
+  "template": "text",
+  "animation": "parallax",  // ← Add this line
+  "text": "Content here..."
+}
+```
+
+#### Method 2: Create New Parallax Section
+```json
+{
+  "id": "new-parallax-section",
+  "template": "multiple-quotes",
+  "animation": "parallax",
+  "children": [
+    // Template content
+  ]
+}
+```
+
+#### Method 3: Remove Parallax
+Simply remove or comment out the `animation` property:
+```json
+{
+  "id": "regular-section",
+  "template": "text",
+  // "animation": "parallax",  ← Remove this
+  "text": "This will scroll normally"
+}
+```
+
+### Parallax Behavior
+
+- **With parallax**: Section has smooth opacity transitions, fixed positioning
+- **Without parallax**: Section scrolls normally with document flow
+- **Scroll detection**: Uses spacer elements for accurate viewport calculations
+- **Performance**: Throttled scroll handlers (16ms) with `requestAnimationFrame`
+
+### Technical Implementation
+
+```tsx
+// ParallaxSection.tsx
+if (section.animation === 'parallax') {
+  return (
+    <>
+      {/* Invisible spacer for scroll calculation */}
+      <section className={styles.parallaxSpacer} style={{ visibility: 'hidden' }}>
+        <div className={styles.container}>
+          {renderTemplate('spacer')}
+        </div>
+      </section>
+      
+      {/* Fixed overlay with content */}
+      <section className={styles.parallax} data-section={section.id}>
+        <div className={styles.container}>
+          {renderTemplate('content')}
+        </div>
+      </section>
+    </>
+  );
+}
+```
+
+## 🎨 Customization
 
 ### Styling
-All styles are implemented using CSS-in-JS objects within components. This provides:
-- Type safety for style properties
-- Dynamic styling based on props
-- Scoped styles without naming conflicts
+- **CSS-in-JS**: All styles in component files for type safety
+- **CSS Modules**: Scoped styles for layout components  
+- **CSS Variables**: Global theming in `globals.css`
+- **Responsive Design**: Mobile-first with clamp() and viewport units
 
-### Parallax Effects
-The parallax scrolling is implemented using vanilla JavaScript for optimal performance. The effect can be customized by adjusting the `parallaxSpeed` value in the `ParallaxSection` component.
+### Performance Optimizations
+- **Throttled Scrolling**: 16ms intervals with `requestAnimationFrame`
+- **Batched State Updates**: Single state object updates in complex components
+- **Passive Event Listeners**: Non-blocking scroll handlers
+- **Static Generation**: Pre-rendered HTML for instant loading
 
-### Responsive Design
-The site uses:
-- `clamp()` for fluid typography
-- CSS Grid with `auto-fit` for responsive layouts
-- Viewport units for consistent spacing
-- Media queries for mobile optimizations
-
-## Performance
-
-The site is optimized for performance through:
-- Static site generation
-- Minimal JavaScript bundle
-- CSS-in-JS for scoped styling
-- Optimized images (when added)
-- Preload critical resources
-
-## Browser Support
-
+### Browser Support
 - Modern browsers with ES2017+ support
-- CSS Grid and Flexbox support required
-- Intersection Observer API for enhanced effects (graceful degradation)
+- CSS Grid and Flexbox required
+- Intersection Observer for enhanced effects (with graceful degradation)
 
-## Contributing
+## 🧪 Development
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Ensure TypeScript compilation passes
-5. Test responsive design
-6. Submit a pull request
+### TypeScript
+Full type coverage with interfaces for all templates and content structure.
 
-## License
+### Testing Build
+```bash
+npm run build    # Test static generation
+npm run lint     # Check for code issues
+npx tsc --noEmit # Verify TypeScript compilation
+```
+
+### Performance Monitoring
+- Bundle analysis available in build output
+- Network tab for asset optimization
+- Lighthouse for performance scoring
+
+## 📄 License
 
 This project is licensed under the ISC License.
