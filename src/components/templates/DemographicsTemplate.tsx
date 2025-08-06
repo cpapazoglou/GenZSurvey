@@ -67,25 +67,17 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
 
         // Check for newly revealed participant
         const newlyVisible = newState.findIndex((isVisible, index) => isVisible && !prev[index]);
+
         if (newlyVisible !== -1) {
           setPopoverOpenIndex(newlyVisible);
         } else if (visibleCount > 0) {
           const lastVisibleIndex = visibleCount - 1;
 
-          // Close first participant's popover when second appears
-          if (visibleCount > 1 && popoverOpenIndex === 0) {
-            setPopoverOpenIndex(lastVisibleIndex);
-          }
-          // Close last participant's popover near end of section
-          else if (scrollProgress > 0.8 && popoverOpenIndex === lastVisibleIndex && lastVisibleIndex === totalParticipants - 1) {
+          if (scrollProgress > 0.95) {
+						// Close last participant's popover near end of section
             setPopoverOpenIndex(null);
-          }
-          // Close if spacer has moved significantly past viewport
-          else if (spacerRect.bottom < viewportHeight * 0.5 && popoverOpenIndex !== null) {
-            setPopoverOpenIndex(null);
-          }
-          // Ensure last visible participant has popover open
-          else if (popoverOpenIndex === null || popoverOpenIndex !== lastVisibleIndex) {
+          } else if (popoverOpenIndex === null || popoverOpenIndex !== lastVisibleIndex) {
+            // Ensure last visible participant has popover open
             setPopoverOpenIndex(lastVisibleIndex);
           }
         }
