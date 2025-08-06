@@ -17,26 +17,24 @@ interface ParallaxSectionProps {
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
   const spacerRef = useRef<HTMLElement>(null);
 
-  const renderTemplate = () => {
+  const renderTemplate = (type?: string) => {
     switch (section.template) {
       case 'hero':
-        return <HeroTemplate section={section} />;
+        return <HeroTemplate section={section} type={type} />;
       case 'multiple-quotes':
-        return <MultipleQuotesTemplate section={section} />;
+        return <MultipleQuotesTemplate section={section} type={type} />;
       case 'text':
-        return <TextTemplate section={section} />;
+        return <TextTemplate section={section} type={type} />;
       case 'demographics':
-        return <DemographicsTemplate section={section} />;
+        return <DemographicsTemplate section={section} type={type} />;
       case 'single-quote':
-        return <SingleQuoteTemplate section={section} />;
+        return <SingleQuoteTemplate section={section} type={type} />;
       case 'mixed':
-        return <MixedTemplate section={section} />;
+        return <MixedTemplate section={section} type={type} />;
       default:
         return <div>Unknown template</div>;
     }
   };
-
-  const content = renderTemplate();
 
   // For parallax sections: invisible spacer + fixed overlay
   if (section.animation === 'parallax') {
@@ -49,7 +47,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
           style={{ visibility: 'hidden' }}
         >
           <div className={styles.container}>
-            {content}
+            {renderTemplate('spacer')}
           </div>
         </section>
         
@@ -60,7 +58,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
 					data-section={section.id}
 				>
 					<div className={styles.container}>
-						{content}
+						{renderTemplate('content')}
 					</div>
 				</section>
       </>
@@ -71,7 +69,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
   return (
     <section className={styles.section}>
       <div className={styles.container} data-section={section.id}>
-        {content}
+        {renderTemplate('content')}
       </div>
     </section>
   );

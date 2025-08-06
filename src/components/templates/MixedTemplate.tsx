@@ -10,23 +10,24 @@ import SingleQuoteTemplate from './SingleQuoteTemplate';
 
 interface MixedTemplateProps {
   section: MixedSection;
+  type?: string; // Optional type prop for consistency with other templates
 }
 
 type ChildSection = HeroSection | MultipleQuotesSection | TextSection | DemographicsSection | SingleQuoteSection;
 
-const MixedTemplate: React.FC<MixedTemplateProps> = ({ section }) => {
+const MixedTemplate: React.FC<MixedTemplateProps> = ({ section, type }) => {
   const renderChild = (child: ChildSection, index: number) => {
     switch (child.template) {
       case 'hero':
-        return <HeroTemplate key={`${child.id}-${index}`} section={child} />;
+        return <HeroTemplate key={`${child.id}-${index}`} section={child} type={type} />;
       case 'multiple-quotes':
-        return <MultipleQuotesTemplate key={`${child.id}-${index}`} section={child} />;
+        return <MultipleQuotesTemplate key={`${child.id}-${index}`} section={child} type={type} />;
       case 'text':
-        return <TextTemplate key={`${child.id}-${index}`} section={child} />;
+        return <TextTemplate key={`${child.id}-${index}`} section={child} type={type} />;
       case 'demographics':
-        return <DemographicsTemplate key={`${child.id}-${index}`} section={child} />;
+        return <DemographicsTemplate key={`${child.id}-${index}`} section={child} type={type} />;
       case 'single-quote':
-        return <SingleQuoteTemplate key={`${child.id}-${index}`} section={child} />;
+        return <SingleQuoteTemplate key={`${child.id}-${index}`} section={child} type={type} />;
     }
   };
 

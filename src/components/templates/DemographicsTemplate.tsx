@@ -8,13 +8,14 @@ import styles from './DemographicsTemplate.module.css';
 
 interface DemographicsTemplateProps {
   section: DemographicsSection;
+	type?: string; // Optional type prop for consistency with other templates
 }
 
-const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section }) => {
+const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, type}) => {
   const [popoverOpenIndex, setPopoverOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className={styles.participants}>
+    <div className={styles.participants} data-type={ type }>
       {section.children.map((child, index) => {
         return (
           <Popover

@@ -6,11 +6,12 @@ import styles from './SingleQuoteTemplate.module.css';
 
 interface SingleQuoteTemplateProps {
   section: SingleQuoteSection;
+  type?: string; // Optional type prop for consistency with other templates
 }
 
-const SingleQuoteTemplate: React.FC<SingleQuoteTemplateProps> = ({ section }) => {
+const SingleQuoteTemplate: React.FC<SingleQuoteTemplateProps> = ({ section, type }) => {
   return (
-    <div className={styles.content} dangerouslySetInnerHTML={{ __html: section.text }} />
+    <div className={styles.content} data-type={type} dangerouslySetInnerHTML={{ __html: section.text }} />
   );
 };
 
