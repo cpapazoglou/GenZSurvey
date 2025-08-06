@@ -18,3 +18,9 @@
 .content strong {
   font-weight: 700;
 }
+
+@media screen and (max-width: 768px) {
+	.content h2 {
+		font-size: 28px;
+	}
+}

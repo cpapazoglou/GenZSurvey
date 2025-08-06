@@ -38,6 +38,9 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
 
   // For parallax sections: invisible spacer + fixed overlay
   if (section.animation === 'parallax') {
+    // Determine if this section might need overflow handling
+    const needsOverflow = section.template === 'multiple-quotes';
+    
     return (
       <>
         {/* Invisible spacer maintains document flow and scroll behavior */}
@@ -54,7 +57,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({ section }) => {
         {/* Fixed parallax overlay - only renders after mount to avoid hydration issues */}
         
 				<section 
-					className={styles.parallax}
+					className={`${styles.parallax} ${needsOverflow ? styles.overflow : ''}`}
 					data-section={section.id}
 				>
 					<div className={styles.container}>

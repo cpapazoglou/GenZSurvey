@@ -117,12 +117,16 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
       {section.children.map((child, index) => {
         const isVisible = visibleParticipants[index];
         
+        const isMobile = window.innerWidth < 768;
+        const shouldUseBottomPosition = isMobile && index < 2;
+        
         return (
           <Popover
             key={index}
             isOpen={popoverOpenIndex === index}
             padding={12}
             reposition={true}
+            positions={shouldUseBottomPosition ? ['bottom', 'top'] : ['top']}
             onClickOutside={() => setPopoverOpenIndex(null)}
             containerStyle={{ zIndex: '10000', opacity: '1' }}
             content={({ position }: { position: string }) => (
@@ -138,7 +142,6 @@ const DemographicsTemplate: React.FC<DemographicsTemplateProps> = ({ section, ty
               style={type === 'content' ? {
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'scale(1)' : 'scale(0.3)',
-                transition: 'opacity 0.3s ease, transform 0.3s ease',
               } : {}}
             >
               <Image 
@@ -197,7 +200,7 @@ const getPopoverContentStyle = (position: string) => {
     border: '1px solid #e0e0e0',
     borderRadius: '10px',
     padding: '12px',
-    fontSize: '11px',
+    fontSize: window.innerWidth < 768 ? '11px' : '13px',
     maxWidth: '180px',
     minWidth: '150px',
     zIndex: 99999, // Very high z-index

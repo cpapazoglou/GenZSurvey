@@ -167,3 +167,9 @@ p.author-quote {
   line-height: 1.7 !important;
 	padding: 40px 0;
 }
+
+@media screen and (max-width: 768px) {
+	p.author-quote {
+		font-size: 28px;
+	}
+}

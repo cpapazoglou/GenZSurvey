@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0 20px;
   min-height: 100vh;
   width: 100%;
 	z-index: 11;
@@ -12,6 +11,7 @@
 .container {
   max-width: 704px;
 	margin: 0 auto;
+	padding: 0 20px;
   width: 100%;
   z-index: 1;
 }
@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0 20px;
   min-height: 130vh;
   width: 100%;
 	z-index: 11;
@@ -35,13 +34,22 @@
   top: 0;
   left: 0;
   width: 100vw;
+  min-height: 100vh;
   height: 100vh;
+  overflow-y: auto;
   z-index: 10;
   will-change: opacity;
-  pointer-events: none; /* Allow scrolling through the fixed element */
+  pointer-events: auto; /* Enable scrolling and interactions */
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+/* When content overflows on mobile, align to top */
+@media (max-width: 768px) {
+  .parallax[data-section].overflow {
+    align-items: flex-start;
+  }
 }
 
 .parallax .container {
