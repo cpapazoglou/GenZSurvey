@@ -196,15 +196,13 @@ const getArrowStyle = (position: string) => {
 };
 
 const getPopoverContentStyle = (position: string) => {
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-  
   return {
     position: 'relative' as const,
     backgroundColor: 'white',
     border: '1px solid #e0e0e0',
     borderRadius: '10px',
     padding: '12px',
-    fontSize: isMobile ? '11px' : '13px',
+    fontSize: '13px',
     maxWidth: '180px',
     minWidth: '150px',
     zIndex: 99999,
